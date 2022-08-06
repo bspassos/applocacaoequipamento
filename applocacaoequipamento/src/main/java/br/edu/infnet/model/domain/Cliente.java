@@ -8,6 +8,12 @@ public class Cliente {
     public String cpf;
     public String email;
 
+    public Cliente(String nome, String cpf, String email) {
+        this.nome = nome;
+        this.cpf = cpf;
+        this.email = email;
+    }
+
     @Override
     public String toString() {
         return nome + ";" + cpf + ";" + email;
