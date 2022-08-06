@@ -1,6 +1,6 @@
 package br.edu.infnet.model.domain;
 
-public class Desktop {
+public class Desktop extends Equipamento {
 
     public String processador;
     public int memoria;
@@ -8,6 +8,6 @@ public class Desktop {
 
     @Override
     public String toString() {
-        return processador + ";" + memoria + ";" + hd;
+        return super.toString() + processador + ";" + memoria + ";" + hd;
     }
 }

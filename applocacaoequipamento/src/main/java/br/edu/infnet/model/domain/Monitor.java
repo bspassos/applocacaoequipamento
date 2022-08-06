@@ -1,6 +1,6 @@
 package br.edu.infnet.model.domain;
 
-public class Monitor {
+public class Monitor extends Equipamento {
 
     public float tela;
     public String resolucao;
@@ -8,6 +8,6 @@ public class Monitor {
 
     @Override
     public String toString() {
-        return tela + ";" + resolucao + ";" + portas;
+        return super.toString() + tela + ";" + resolucao + ";" + portas;
     }
 }

@@ -1,6 +1,6 @@
 package br.edu.infnet.model.domain;
 
-public class Impressora {
+public class Impressora extends Equipamento {
 
     public String tipo;
     public String marca;
@@ -8,6 +8,6 @@ public class Impressora {
 
     @Override
     public String toString() {
-        return tipo + ";" + marca + ";" + tanqueDeTinta;
+        return super.toString() + tipo + ";" + marca + ";" + tanqueDeTinta;
     }
 }
