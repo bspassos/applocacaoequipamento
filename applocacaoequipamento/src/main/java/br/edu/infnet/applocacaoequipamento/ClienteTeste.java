@@ -4,11 +4,13 @@ import br.edu.infnet.model.domain.Cliente;
 import br.edu.infnet.model.domain.Locacao;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 
 @Component
+@Order(1)
 public class ClienteTeste implements ApplicationRunner {
 
     @Override

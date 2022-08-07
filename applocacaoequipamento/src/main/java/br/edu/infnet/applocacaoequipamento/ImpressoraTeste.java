@@ -4,9 +4,11 @@ import br.edu.infnet.model.domain.Cliente;
 import br.edu.infnet.model.domain.Impressora;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 @Component
+@Order(5)
 public class ImpressoraTeste implements ApplicationRunner {
 
     @Override
