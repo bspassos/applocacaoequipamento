@@ -16,21 +16,21 @@ public class LocacaoTeste implements ApplicationRunner {
         System.out.println("#locacao");
 
         Locacao l1 = new Locacao();
-        l1.descricao = "Locação 1";
-        l1.data = LocalDateTime.now();
-        l1.meses = 3;
+        l1.setDescricao("Locação 1");
+        l1.setData(LocalDateTime.now());
+        l1.setMeses(3);
         System.out.println(l1);
 
         Locacao l2 = new Locacao();
-        l2.descricao = "Locação 2";
-        l2.data = LocalDateTime.now();
-        l2.meses = 6;
+        l2.setDescricao("Locação 2");
+        l2.setData(LocalDateTime.now());
+        l2.setMeses(6);
         System.out.println(l2);
 
         Locacao l3 = new Locacao();
-        l3.descricao = "Locação 3";
-        l3.data = LocalDateTime.now();
-        l3.meses = 12;
+        l3.setDescricao("Locação 3");
+        l3.setData(LocalDateTime.now());
+        l3.setMeses(12);
         System.out.println(l3);
     }
 }

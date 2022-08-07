@@ -15,30 +15,30 @@ public class MonitorTeste implements ApplicationRunner {
         System.out.println("#monitor");
 
         Monitor m1 = new Monitor();
-        m1.codigo = 1;
-        m1.nome = "Monitor Dell 18.5\" E1920H";
-        m1.mensalidade = 100;
-        m1.tela = 18.5f;
-        m1.resolucao = "1366x768";
-        m1.portas = "DisplayPort e VGA";
+        m1.setCodigo(7);
+        m1.setNome("Monitor Dell 18.5\" E1920H");
+        m1.setMensalidade(100);
+        m1.setTela(18.5f);
+        m1.setResolucao("1366x768");
+        m1.setPortas("DisplayPort e VGA");
         System.out.println(m1);
 
         Monitor m2 = new Monitor();
-        m2.codigo = 2;
-        m2.nome = "Monitor Dell de 21.5\" SE2222H";
-        m2.mensalidade = 180;
-        m2.tela = 21.5f;
-        m2.resolucao = "1920x1080";
-        m2.portas = "HDMI e VGA";
+        m2.setCodigo(8);
+        m2.setNome("Monitor Dell de 21.5\" SE2222H");
+        m2.setMensalidade(180);
+        m2.setTela(21.5f);
+        m2.setResolucao("1920x1080");
+        m2.setPortas("HDMI e VGA");
         System.out.println(m2);
 
         Monitor m3 = new Monitor();
-        m3.codigo = 3;
-        m3.nome = "Monitor 23\" Dell P2319H";
-        m3.mensalidade = 250;
-        m3.tela = 23;
-        m3.resolucao = "1920x1080";
-        m3.portas = "DisplayPort, VGA e HDMI";
+        m3.setCodigo(9);
+        m3.setNome("Monitor 23\" Dell P2319H");
+        m3.setMensalidade(250);
+        m3.setTela(23);
+        m3.setResolucao("1920x1080");
+        m3.setPortas("DisplayPort, VGA e HDMI");
         System.out.println(m3);
     }
 }
