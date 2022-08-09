@@ -16,15 +16,13 @@ public class ClienteTeste implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
-        System.out.println("#cliente");
-
         Cliente c1 = new Cliente("Pedro", "12345678900", "pedro@nobarquinho.com");
-        System.out.println(c1);
+        c1.impressao();
 
         Cliente c2 = new Cliente("Thiago", "78945612399", "thiago@nobarquinho.com");
-        System.out.println(c2);
+        c2.impressao();
 
         Cliente c3 = new Cliente("Joao", "32165498700", "joao@nobarquinho.com");
-        System.out.println(c3);
+        c3.impressao();
     }
 }

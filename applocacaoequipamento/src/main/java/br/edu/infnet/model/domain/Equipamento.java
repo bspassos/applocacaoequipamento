@@ -1,10 +1,12 @@
 package br.edu.infnet.model.domain;
 
-public class Equipamento {
+public abstract class Equipamento {
 
     private String nome;
     private float mensalidade;
     private int codigo;
+
+    public abstract void impressao();
 
     public float calcularPontosFidelidade() {
         return mensalidade;//para cada real gasto irá gerar 1 ponto.

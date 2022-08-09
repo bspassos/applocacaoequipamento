@@ -6,6 +6,11 @@ public class Desktop extends Equipamento {
     private int memoria;
     private String hd;
 
+    public void impressao(){
+        System.out.println("#desktop");
+        System.out.println(this);
+    }
+
     @Override
     public float calcularPontosFidelidade() {
         //produto do tipo Desktop usa um multiplicador de pontos de acordo com a memória

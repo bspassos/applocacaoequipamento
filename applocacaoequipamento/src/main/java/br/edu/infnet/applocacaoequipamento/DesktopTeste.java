@@ -14,8 +14,6 @@ public class DesktopTeste implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
-        System.out.println("#desktop");
-
         Desktop d1 = new Desktop();
         d1.setCodigo(1);
         d1.setNome("Desktop Dell Workstation Precision 3460");;
@@ -23,7 +21,7 @@ public class DesktopTeste implements ApplicationRunner {
         d1.setProcessador("Core i3 12th");;
         d1.setMemoria(8);
         d1.setHd("512GB");
-        System.out.println(d1);
+        d1.impressao();
 
         Desktop d2 = new Desktop();
         d2.setCodigo(2);
@@ -32,7 +30,7 @@ public class DesktopTeste implements ApplicationRunner {
         d2.setProcessador("Core i5 12th");;
         d2.setMemoria(16);
         d2.setHd("1TB");
-        System.out.println(d2);
+        d2.impressao();
 
         Desktop d3 = new Desktop();
         d3.setCodigo(3);
@@ -41,6 +39,6 @@ public class DesktopTeste implements ApplicationRunner {
         d3.setProcessador("Core i7 12th");;
         d3.setMemoria(32);
         d3.setHd("1TB");
-        System.out.println(d3);
+        d3.impressao();
     }
 }

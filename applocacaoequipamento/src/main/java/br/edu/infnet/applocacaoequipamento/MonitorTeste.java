@@ -14,8 +14,6 @@ public class MonitorTeste implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
-        System.out.println("#monitor");
-
         Monitor m1 = new Monitor();
         m1.setCodigo(7);
         m1.setNome("Monitor Dell 18.5\" E1920H");
@@ -23,7 +21,7 @@ public class MonitorTeste implements ApplicationRunner {
         m1.setTela(18.5f);
         m1.setResolucao("1366x768");
         m1.setPortas("DisplayPort e VGA");
-        System.out.println(m1);
+        m1.impressao();
 
         Monitor m2 = new Monitor();
         m2.setCodigo(8);
@@ -32,7 +30,7 @@ public class MonitorTeste implements ApplicationRunner {
         m2.setTela(21.5f);
         m2.setResolucao("1920x1080");
         m2.setPortas("HDMI e VGA");
-        System.out.println(m2);
+        m2.impressao();
 
         Monitor m3 = new Monitor();
         m3.setCodigo(9);
@@ -41,6 +39,6 @@ public class MonitorTeste implements ApplicationRunner {
         m3.setTela(23);
         m3.setResolucao("1920x1080");
         m3.setPortas("DisplayPort, VGA e HDMI");
-        System.out.println(m3);
+        m3.impressao();
     }
 }

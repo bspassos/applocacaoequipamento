@@ -6,6 +6,11 @@ public class Monitor extends Equipamento {
     private String resolucao;
     private String portas;
 
+    public void impressao(){
+        System.out.println("#monitor");
+        System.out.println(this);
+    }
+
     @Override
     public float calcularPontosFidelidade() {
         //Produto do tipo monitor só oferece duas pontuações.

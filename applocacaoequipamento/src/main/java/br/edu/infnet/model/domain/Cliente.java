@@ -14,6 +14,11 @@ public class Cliente {
         this.email = email;
     }
 
+    public void impressao() {
+        System.out.println("#cliente");
+        System.out.println(this);
+    }
+
     public String getNome() {
         return nome;
     }

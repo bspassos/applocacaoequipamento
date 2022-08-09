@@ -6,6 +6,11 @@ public class Impressora extends Equipamento {
     private String marca;
     private boolean tanqueDeTinta;
 
+    public void impressao(){
+        System.out.println("#impressora");
+        System.out.println(this);
+    }
+
     public String getTipo() {
         return tipo;
     }

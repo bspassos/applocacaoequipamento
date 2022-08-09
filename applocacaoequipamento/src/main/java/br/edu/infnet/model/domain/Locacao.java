@@ -8,6 +8,11 @@ public class Locacao {
     private LocalDateTime data;
     private int meses;
 
+    public void impressao() {
+        System.out.println("#locacao");
+        System.out.println(this);
+    }
+
     public String getDescricao() {
         return descricao;
     }
