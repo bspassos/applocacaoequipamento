@@ -6,6 +6,14 @@ public class Desktop extends Equipamento {
     private int memoria;
     private String hd;
 
+    @Override
+    public float calcularPontosFidelidade() {
+        //produto do tipo Desktop usa um multiplicador de pontos de acordo com a memória
+        float multiplicador = memoria < 16 ? 1.5f : 2;
+
+        return super.calcularPontosFidelidade() * multiplicador;
+    }
+
     public String getProcessador() {
         return processador;
     }
@@ -32,6 +40,6 @@ public class Desktop extends Equipamento {
 
     @Override
     public String toString() {
-        return super.toString() + processador + ";" + memoria + ";" + hd;
+        return super.toString() + ";" + processador + ";" + memoria + ";" + hd;
     }
 }

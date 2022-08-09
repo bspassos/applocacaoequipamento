@@ -6,6 +6,15 @@ public class Equipamento {
     private float mensalidade;
     private int codigo;
 
+    public float calcularPontosFidelidade() {
+        return mensalidade;//para cada real gasto irá gerar 1 ponto.
+    }
+
+    @Override
+    public String toString() {
+        return nome + ";" + mensalidade + ";" + codigo + ";" + calcularPontosFidelidade();
+    }
+
     public String getNome() {
         return nome;
     }
@@ -28,10 +37,5 @@ public class Equipamento {
 
     public void setCodigo(int codigo) {
         this.codigo = codigo;
-    }
-
-    @Override
-    public String toString() {
-        return nome + ";" + mensalidade + ";" + codigo;
     }
 }

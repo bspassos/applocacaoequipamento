@@ -6,6 +6,12 @@ public class Monitor extends Equipamento {
     private String resolucao;
     private String portas;
 
+    @Override
+    public float calcularPontosFidelidade() {
+        //Produto do tipo monitor só oferece duas pontuações.
+        return tela > 20 ? 200 : 100;
+    }
+
     public float getTela() {
         return tela;
     }
@@ -32,6 +38,6 @@ public class Monitor extends Equipamento {
 
     @Override
     public String toString() {
-        return super.toString() + tela + ";" + resolucao + ";" + portas;
+        return super.toString() + ";" + tela + ";" + resolucao + ";" + portas;
     }
 }

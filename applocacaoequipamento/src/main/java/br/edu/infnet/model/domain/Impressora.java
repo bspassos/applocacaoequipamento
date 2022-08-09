@@ -32,6 +32,6 @@ public class Impressora extends Equipamento {
 
     @Override
     public String toString() {
-        return super.toString() + tipo + ";" + marca + ";" + tanqueDeTinta;
+        return super.toString() + ";" + tipo + ";" + marca + ";" + tanqueDeTinta;
     }
 }
