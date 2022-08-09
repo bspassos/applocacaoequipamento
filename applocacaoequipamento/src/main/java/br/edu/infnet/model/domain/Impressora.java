@@ -9,6 +9,7 @@ public class Impressora extends Equipamento {
     public void impressao(){
         System.out.println("#impressora");
         System.out.println(this);
+        System.out.println("===============================================================");
     }
 
     public String getTipo() {

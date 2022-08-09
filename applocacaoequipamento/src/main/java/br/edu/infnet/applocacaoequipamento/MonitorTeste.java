@@ -2,6 +2,7 @@ package br.edu.infnet.applocacaoequipamento;
 
 import br.edu.infnet.model.domain.Cliente;
 import br.edu.infnet.model.domain.Monitor;
+import br.edu.infnet.model.test.AppEquipamento;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
@@ -21,7 +22,9 @@ public class MonitorTeste implements ApplicationRunner {
         m1.setTela(18.5f);
         m1.setResolucao("1366x768");
         m1.setPortas("DisplayPort e VGA");
-        m1.impressao();
+        //m1.impressao();
+
+        new AppEquipamento("Cadastro do desktop " + m1.getNome()).relatorio(m1);
 
         Monitor m2 = new Monitor();
         m2.setCodigo(8);
@@ -30,7 +33,9 @@ public class MonitorTeste implements ApplicationRunner {
         m2.setTela(21.5f);
         m2.setResolucao("1920x1080");
         m2.setPortas("HDMI e VGA");
-        m2.impressao();
+        //m2.impressao();
+
+        new AppEquipamento("Cadastro do desktop " + m2.getNome()).relatorio(m2);
 
         Monitor m3 = new Monitor();
         m3.setCodigo(9);
@@ -39,6 +44,8 @@ public class MonitorTeste implements ApplicationRunner {
         m3.setTela(23);
         m3.setResolucao("1920x1080");
         m3.setPortas("DisplayPort, VGA e HDMI");
-        m3.impressao();
+        //m3.impressao();
+
+        new AppEquipamento("Cadastro do desktop " + m3.getNome()).relatorio(m3);
     }
 }
