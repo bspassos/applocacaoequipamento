@@ -55,19 +55,19 @@
             </thead>
             <tbody>
             <tr>
-                <td>...</td>
-                <td>...</td>
-                <td>...</td>
+                <td>Pedro</td>
+                <td>12345678900</td>
+                <td>pedro@nobarquinho.com</td>
             </tr>
             <tr>
-                <td>...</td>
-                <td>...</td>
-                <td>...</td>
+                <td>Thiago</td>
+                <td>78945612399</td>
+                <td>thiago@nobarquinho.com</td>
             </tr>
             <tr>
-                <td>...</td>
-                <td>...</td>
-                <td>...</td>
+                <td>Joao</td>
+                <td>32165498700</td>
+                <td>joao@nobarquinho.com</td>
             </tr>
             </tbody>
         </table>

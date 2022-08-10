@@ -58,28 +58,28 @@
             </thead>
             <tbody>
             <tr>
-                <td>...</td>
-                <td>...</td>
-                <td>...</td>
-                <td>...</td>
-                <td>...</td>
-                <td>...</td>
+                <td>Impressora multifuncional hp DeskJet Ink Advantage 2774 com Wi-Fi</td>
+                <td>30</td>
+                <td>4</td>
+                <td>Deskjet</td>
+                <td>HP</td>
+                <td>Não</td>
             </tr>
             <tr>
-                <td>...</td>
-                <td>...</td>
-                <td>...</td>
-                <td>...</td>
-                <td>...</td>
-                <td>...</td>
+                <td>Impressora multifuncional deskjet tanque hp 416</td>
+                <td>60</td>
+                <td>5</td>
+                <td>Deskjet</td>
+                <td>HP</td>
+                <td>Sim</td>
             </tr>
             <tr>
-                <td>...</td>
-                <td>...</td>
-                <td>...</td>
-                <td>...</td>
-                <td>...</td>
-                <td>...</td>
+                <td>Impressora Laser Monocromática, Xerox, B210, 30 PPM, A4</td>
+                <td>400</td>
+                <td>6</td>
+                <td>Laser</td>
+                <td>Xerox</td>
+                <td>Não</td>
             </tr>
             </tbody>
         </table>

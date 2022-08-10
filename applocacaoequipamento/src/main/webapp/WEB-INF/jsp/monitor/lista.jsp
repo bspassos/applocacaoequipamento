@@ -58,28 +58,28 @@
             </thead>
             <tbody>
             <tr>
-                <td>...</td>
-                <td>...</td>
-                <td>...</td>
-                <td>...</td>
-                <td>...</td>
-                <td>...</td>
+                <td>7</td>
+                <td>Monitor Dell 18.5" E1920H</td>
+                <td>100,00</td>
+                <td>18.5f</td>
+                <td>1920x1080</td>
+                <td>HDMI e VGA</td>
             </tr>
             <tr>
-                <td>...</td>
-                <td>...</td>
-                <td>...</td>
-                <td>...</td>
-                <td>...</td>
-                <td>...</td>
+                <td>Monitor Dell de 21.5" SE2222H</td>
+                <td>180,00</td>
+                <td>8</td>
+                <td>21.5"</td>
+                <td>1920x1080</td>
+                <td>HDMI e VGA</td>
             </tr>
             <tr>
-                <td>...</td>
-                <td>...</td>
-                <td>...</td>
-                <td>...</td>
-                <td>...</td>
-                <td>...</td>
+                <td>Monitor 23" Dell P2319H</td>
+                <td>250,00</td>
+                <td>9</td>
+                <td>23</td>
+                <td>1920x1080</td>
+                <td>DisplayPort, VGA e HDMI</td>
             </tr>
             </tbody>
         </table>

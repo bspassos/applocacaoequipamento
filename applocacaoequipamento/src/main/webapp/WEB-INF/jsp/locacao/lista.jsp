@@ -55,19 +55,19 @@
             </thead>
             <tbody>
             <tr>
-                <td>...</td>
-                <td>...</td>
-                <td>...</td>
+                <td>Locação 1</td>
+                <td>15/07/2022 às 09:00</td>
+                <td>3</td>
             </tr>
             <tr>
-                <td>...</td>
-                <td>...</td>
-                <td>...</td>
+                <td>Locação 2</td>
+                <td>05/08/2022 às 16:00</td>
+                <td>6</td>
             </tr>
             <tr>
-                <td>...</td>
-                <td>...</td>
-                <td>...</td>
+                <td>Locação 3</td>
+                <td>10/08/2022 às 15:00</td>
+                <td>12</td>
             </tr>
             </tbody>
         </table>

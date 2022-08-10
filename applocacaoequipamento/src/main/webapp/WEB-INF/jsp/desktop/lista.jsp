@@ -58,28 +58,28 @@
             </thead>
             <tbody>
             <tr>
-                <td>...</td>
-                <td>...</td>
-                <td>...</td>
-                <td>...</td>
-                <td>...</td>
-                <td>...</td>
+                <td>Desktop Dell Workstation Precision 3460</td>
+                <td>250,00</td>
+                <td>1</td>
+                <td>Core i3 12th</td>
+                <td>8</td>
+                <td>512GB</td>
             </tr>
             <tr>
-                <td>...</td>
-                <td>...</td>
-                <td>...</td>
-                <td>...</td>
-                <td>...</td>
-                <td>...</td>
+                <td>Desktop Dell Workstation Precision 3660</td>
+                <td>350,00</td>
+                <td>2</td>
+                <td>Core i5 12th</td>
+                <td>16</td>
+                <td>1TB</td>
             </tr>
             <tr>
-                <td>...</td>
-                <td>...</td>
-                <td>...</td>
-                <td>...</td>
-                <td>...</td>
-                <td>...</td>
+                <td>Desktop Dell XPS 8950</td>
+                <td>480,00</td>
+                <td>3</td>
+                <td>Core i7 12th</td>
+                <td>32</td>
+                <td>1TB</td>
             </tr>
             </tbody>
         </table>
