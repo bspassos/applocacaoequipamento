@@ -1,8 +1,10 @@
 package br.edu.infnet.applocacaoequipamento.model.domain;
 
+import br.edu.infnet.applocacaoequipamento.interfaces.IPrinter;
+
 import java.time.LocalDateTime;
 
-public class Cliente {
+public class Cliente implements IPrinter {
 
     private String nome;
     private String cpf;
@@ -14,6 +16,7 @@ public class Cliente {
         this.email = email;
     }
 
+    @Override
     public void impressao() {
         System.out.println("#cliente");
         System.out.println(this);
@@ -47,4 +50,6 @@ public class Cliente {
     public String toString() {
         return nome + ";" + cpf + ";" + email;
     }
+
+
 }

@@ -1,13 +1,16 @@
 package br.edu.infnet.applocacaoequipamento.model.domain;
 
+import br.edu.infnet.applocacaoequipamento.interfaces.IPrinter;
+
 import java.time.LocalDateTime;
 
-public class Locacao {
+public class Locacao implements IPrinter {
 
     private String descricao;
     private LocalDateTime data;
     private int meses;
 
+    @Override
     public void impressao() {
         System.out.println("#locacao");
         System.out.println(this);
@@ -41,4 +44,6 @@ public class Locacao {
     public String toString() {
         return descricao + ";" + data + ";" + meses;
     }
+
+
 }
