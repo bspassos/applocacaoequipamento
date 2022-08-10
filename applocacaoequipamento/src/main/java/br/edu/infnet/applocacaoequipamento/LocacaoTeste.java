@@ -1,6 +1,6 @@
 package br.edu.infnet.applocacaoequipamento;
 
-import br.edu.infnet.model.domain.Locacao;
+import br.edu.infnet.applocacaoequipamento.model.domain.Locacao;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;

@@ -1,13 +1,10 @@
 package br.edu.infnet.applocacaoequipamento;
 
-import br.edu.infnet.model.domain.Cliente;
-import br.edu.infnet.model.domain.Locacao;
+import br.edu.infnet.applocacaoequipamento.model.domain.Cliente;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
-
-import java.time.LocalDateTime;
 
 @Component
 @Order(1)

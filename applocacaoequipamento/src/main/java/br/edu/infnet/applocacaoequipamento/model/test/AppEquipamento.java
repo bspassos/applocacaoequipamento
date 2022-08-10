@@ -1,6 +1,6 @@
-package br.edu.infnet.model.test;
+package br.edu.infnet.applocacaoequipamento.model.test;
 
-import br.edu.infnet.model.domain.Equipamento;
+import br.edu.infnet.applocacaoequipamento.model.domain.Equipamento;
 
 public class AppEquipamento {
 

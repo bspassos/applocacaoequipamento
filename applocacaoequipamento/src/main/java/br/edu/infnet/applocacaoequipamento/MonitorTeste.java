@@ -1,8 +1,7 @@
 package br.edu.infnet.applocacaoequipamento;
 
-import br.edu.infnet.model.domain.Cliente;
-import br.edu.infnet.model.domain.Monitor;
-import br.edu.infnet.model.test.AppEquipamento;
+import br.edu.infnet.applocacaoequipamento.model.domain.Monitor;
+import br.edu.infnet.applocacaoequipamento.model.test.AppEquipamento;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
