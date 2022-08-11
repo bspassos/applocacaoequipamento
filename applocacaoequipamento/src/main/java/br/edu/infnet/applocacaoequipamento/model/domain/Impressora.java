@@ -6,10 +6,16 @@ public class Impressora extends Equipamento {
     private String marca;
     private boolean tanqueDeTinta;
 
+    @Override
     public void impressao(){
         System.out.println("#impressora");
         System.out.println(this);
         System.out.println("===============================================================");
+    }
+
+    @Override
+    public float calcularPontosFidelidade() {
+        return getMensalidade();
     }
 
     public String getTipo() {
@@ -35,6 +41,7 @@ public class Impressora extends Equipamento {
     public void setTanqueDeTinta(boolean tanqueDeTinta) {
         this.tanqueDeTinta = tanqueDeTinta;
     }
+
 
     @Override
     public String toString() {

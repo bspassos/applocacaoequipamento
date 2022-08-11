@@ -6,6 +6,7 @@ public class Desktop extends Equipamento {
     private int memoria;
     private String hd;
 
+    @Override
     public void impressao(){
         System.out.println("#desktop");
         System.out.println(this);
@@ -17,7 +18,7 @@ public class Desktop extends Equipamento {
         //produto do tipo Desktop usa um multiplicador de pontos de acordo com a memória
         float multiplicador = memoria < 16 ? 1.5f : 2;
 
-        return super.calcularPontosFidelidade() * multiplicador;
+        return getMensalidade() * multiplicador;
     }
 
     public String getProcessador() {

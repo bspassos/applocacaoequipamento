@@ -1,16 +1,18 @@
 package br.edu.infnet.applocacaoequipamento.model.domain;
 
-public abstract class Equipamento {
+import br.edu.infnet.applocacaoequipamento.interfaces.IPrinter;
+
+public abstract class Equipamento implements IPrinter {
 
     private String nome;
     private float mensalidade;
     private int codigo;
 
-    public abstract void impressao();
+    public abstract float calcularPontosFidelidade();
 
-    public float calcularPontosFidelidade() {
-        return mensalidade;//para cada real gasto irá gerar 1 ponto.
-    }
+//    public float calcularPontosFidelidade() {
+//        return mensalidade;//para cada real gasto irá gerar 1 ponto.
+//    }
 
     @Override
     public String toString() {

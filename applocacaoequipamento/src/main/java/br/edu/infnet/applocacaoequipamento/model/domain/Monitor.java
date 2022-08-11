@@ -6,6 +6,7 @@ public class Monitor extends Equipamento {
     private String resolucao;
     private String portas;
 
+    @Override
     public void impressao(){
         System.out.println("#monitor");
         System.out.println(this);
