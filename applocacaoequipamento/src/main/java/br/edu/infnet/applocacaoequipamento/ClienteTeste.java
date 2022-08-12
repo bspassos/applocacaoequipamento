@@ -1,6 +1,7 @@
 package br.edu.infnet.applocacaoequipamento;
 
 import br.edu.infnet.applocacaoequipamento.model.domain.Cliente;
+import br.edu.infnet.applocacaoequipamento.model.test.AppImpressao;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
@@ -13,13 +14,19 @@ public class ClienteTeste implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
+        System.out.println("===================================================");
+        System.out.println("######locação");
+
         Cliente c1 = new Cliente("Pedro", "12345678900", "pedro@nobarquinho.com");
-        c1.impressao();
+        AppImpressao.relatorio("Cadastrado o cliente " + c1.getNome(), c1);
 
         Cliente c2 = new Cliente("Thiago", "78945612399", "thiago@nobarquinho.com");
-        c2.impressao();
+        AppImpressao.relatorio("Cadastrado o cliente " + c2.getNome(), c2);
 
         Cliente c3 = new Cliente("Joao", "32165498700", "joao@nobarquinho.com");
-        c3.impressao();
+        AppImpressao.relatorio("Cadastrado o cliente " + c3.getNome(), c3);
+
+        System.out.println("===================================================");
+
     }
 }

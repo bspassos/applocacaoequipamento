@@ -1,7 +1,7 @@
 package br.edu.infnet.applocacaoequipamento;
 
 import br.edu.infnet.applocacaoequipamento.model.domain.Desktop;
-import br.edu.infnet.applocacaoequipamento.model.test.AppEquipamento;
+import br.edu.infnet.applocacaoequipamento.model.test.AppImpressao;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
@@ -13,6 +13,8 @@ public class DesktopTeste implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
+        System.out.println("===================================================");
+        System.out.println("######desktop");
 
         Desktop d1 = new Desktop();
         d1.setCodigo(1);
@@ -21,9 +23,8 @@ public class DesktopTeste implements ApplicationRunner {
         d1.setProcessador("Core i3 12th");;
         d1.setMemoria(8);
         d1.setHd("512GB");
-        //d1.impressao();
 
-        new AppEquipamento("Cadastro do desktop " + d1.getNome()).relatorio(d1);
+        AppImpressao.relatorio("Cadastro do desktop " + d1.getNome(), d1);
 
         Desktop d2 = new Desktop();
         d2.setCodigo(2);
@@ -32,9 +33,8 @@ public class DesktopTeste implements ApplicationRunner {
         d2.setProcessador("Core i5 12th");;
         d2.setMemoria(16);
         d2.setHd("1TB");
-        //d2.impressao();
 
-        new AppEquipamento("Cadastro do desktop " + d2.getNome()).relatorio(d2);
+        AppImpressao.relatorio("Cadastro do desktop " + d2.getNome(), d2);
 
         Desktop d3 = new Desktop();
         d3.setCodigo(3);
@@ -43,8 +43,10 @@ public class DesktopTeste implements ApplicationRunner {
         d3.setProcessador("Core i7 12th");;
         d3.setMemoria(32);
         d3.setHd("1TB");
-        //d3.impressao();
 
-        new AppEquipamento("Cadastro do desktop " + d3.getNome()).relatorio(d3);
+        AppImpressao.relatorio("Cadastro do desktop " + d3.getNome(), d3);
+
+        System.out.println("===================================================");
+
     }
 }

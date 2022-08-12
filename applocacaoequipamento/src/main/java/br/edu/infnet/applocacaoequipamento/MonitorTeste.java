@@ -1,7 +1,7 @@
 package br.edu.infnet.applocacaoequipamento;
 
 import br.edu.infnet.applocacaoequipamento.model.domain.Monitor;
-import br.edu.infnet.applocacaoequipamento.model.test.AppEquipamento;
+import br.edu.infnet.applocacaoequipamento.model.test.AppImpressao;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
@@ -13,6 +13,8 @@ public class MonitorTeste implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
+        System.out.println("===================================================");
+        System.out.println("######monitor");
 
         Monitor m1 = new Monitor();
         m1.setCodigo(7);
@@ -21,9 +23,8 @@ public class MonitorTeste implements ApplicationRunner {
         m1.setTela(18.5f);
         m1.setResolucao("1366x768");
         m1.setPortas("DisplayPort e VGA");
-        //m1.impressao();
 
-        new AppEquipamento("Cadastro do desktop " + m1.getNome()).relatorio(m1);
+        AppImpressao.relatorio("Cadastro do monitor " + m1.getNome(), m1);
 
         Monitor m2 = new Monitor();
         m2.setCodigo(8);
@@ -32,9 +33,8 @@ public class MonitorTeste implements ApplicationRunner {
         m2.setTela(21.5f);
         m2.setResolucao("1920x1080");
         m2.setPortas("HDMI e VGA");
-        //m2.impressao();
 
-        new AppEquipamento("Cadastro do desktop " + m2.getNome()).relatorio(m2);
+        AppImpressao.relatorio("Cadastro do monitor " + m2.getNome(), m2);
 
         Monitor m3 = new Monitor();
         m3.setCodigo(9);
@@ -43,8 +43,9 @@ public class MonitorTeste implements ApplicationRunner {
         m3.setTela(23);
         m3.setResolucao("1920x1080");
         m3.setPortas("DisplayPort, VGA e HDMI");
-        //m3.impressao();
 
-        new AppEquipamento("Cadastro do desktop " + m3.getNome()).relatorio(m3);
+        AppImpressao.relatorio("Cadastro do monitor " + m3.getNome(), m3);
+
+        System.out.println("===================================================");
     }
 }

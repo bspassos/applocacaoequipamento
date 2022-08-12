@@ -29,7 +29,7 @@
                     <a class="nav-link" href="/monitor/lista">Monitor</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Equipamento</a>
+                    <a class="nav-link" href="/equipamento/lista">Equipamento</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/cliente/lista">Cliente</a>

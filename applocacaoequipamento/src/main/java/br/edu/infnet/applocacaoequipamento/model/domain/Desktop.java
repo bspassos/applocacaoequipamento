@@ -10,7 +10,7 @@ public class Desktop extends Equipamento {
     public void impressao(){
         System.out.println("#desktop");
         System.out.println(this);
-        System.out.println("===============================================================");
+        System.out.println("----------------------------------------------------");
     }
 
     @Override

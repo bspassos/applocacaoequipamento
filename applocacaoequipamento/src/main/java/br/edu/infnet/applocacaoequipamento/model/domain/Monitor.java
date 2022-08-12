@@ -10,7 +10,7 @@ public class Monitor extends Equipamento {
     public void impressao(){
         System.out.println("#monitor");
         System.out.println(this);
-        System.out.println("===============================================================");
+        System.out.println("----------------------------------------------------");
     }
 
     @Override
