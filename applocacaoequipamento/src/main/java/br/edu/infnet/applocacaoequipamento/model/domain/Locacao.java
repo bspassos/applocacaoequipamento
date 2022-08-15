@@ -11,6 +11,10 @@ public class Locacao implements IPrinter {
     private int meses;
     private Cliente cliente;
 
+    public Locacao(String cpf, String email, String nome) {
+        cliente = new Cliente(cpf, email, nome);
+    }
+
     @Override
     public void impressao() {
         System.out.println("#locacao");
@@ -46,11 +50,4 @@ public class Locacao implements IPrinter {
         return descricao + ";" + data + ";" + meses + ";" + cliente;
     }
 
-    public Cliente getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
 }
