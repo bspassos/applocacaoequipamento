@@ -11,8 +11,9 @@ public class Locacao implements IPrinter {
     private int meses;
     private Cliente cliente;
 
-    public Locacao(String cpf, String email, String nome) {
-        cliente = new Cliente(cpf, email, nome);
+    public Locacao(Cliente cliente) {
+        this.data = LocalDateTime.now();
+        this.cliente = cliente;
     }
 
     @Override
@@ -29,13 +30,6 @@ public class Locacao implements IPrinter {
         this.descricao = descricao;
     }
 
-    public LocalDateTime getData() {
-        return data;
-    }
-
-    public void setData(LocalDateTime data) {
-        this.data = data;
-    }
 
     public int getMeses() {
         return meses;
