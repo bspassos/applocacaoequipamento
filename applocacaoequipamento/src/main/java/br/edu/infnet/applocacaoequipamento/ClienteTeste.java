@@ -15,7 +15,7 @@ public class ClienteTeste implements ApplicationRunner {
     public void run(ApplicationArguments args) throws Exception {
 
         System.out.println("===================================================");
-        System.out.println("######locação");
+        System.out.println("######cliente");
 
         Cliente c1 = new Cliente("Pedro", "12345678900", "pedro@nobarquinho.com");
         AppImpressao.relatorio("Cadastrado o cliente " + c1.getNome(), c1);

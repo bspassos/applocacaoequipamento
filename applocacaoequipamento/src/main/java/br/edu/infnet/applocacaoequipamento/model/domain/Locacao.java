@@ -9,6 +9,7 @@ public class Locacao implements IPrinter {
     private String descricao;
     private LocalDateTime data;
     private int meses;
+    private Cliente cliente;
 
     @Override
     public void impressao() {
@@ -42,8 +43,14 @@ public class Locacao implements IPrinter {
 
     @Override
     public String toString() {
-        return descricao + ";" + data + ";" + meses;
+        return descricao + ";" + data + ";" + meses + ";" + cliente;
     }
 
+    public Cliente getCliente() {
+        return cliente;
+    }
 
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
 }
