@@ -3,6 +3,7 @@ package br.edu.infnet.applocacaoequipamento.model.domain;
 import br.edu.infnet.applocacaoequipamento.interfaces.IPrinter;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class Locacao implements IPrinter {
 
@@ -10,6 +11,7 @@ public class Locacao implements IPrinter {
     private LocalDateTime data;
     private int meses;
     private Cliente cliente;
+    private List<Equipamento> equipamentos;
 
     public Locacao(Cliente cliente) {
         this.data = LocalDateTime.now();
@@ -35,13 +37,21 @@ public class Locacao implements IPrinter {
         return meses;
     }
 
+    public List<Equipamento> getEquipamentos() {
+        return equipamentos;
+    }
+
+    public void setEquipamentos(List<Equipamento> equipamentos) {
+        this.equipamentos = equipamentos;
+    }
+
     public void setMeses(int meses) {
         this.meses = meses;
     }
 
     @Override
     public String toString() {
-        return descricao + ";" + data + ";" + meses + ";" + cliente;
+        return descricao + ";" + data + ";" + meses + ";" + cliente + ";" + equipamentos.size();
     }
 
 }
