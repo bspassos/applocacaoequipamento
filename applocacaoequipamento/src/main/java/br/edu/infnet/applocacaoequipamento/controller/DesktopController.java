@@ -12,40 +12,15 @@ import java.util.List;
 @Controller
 public class DesktopController {
 
-    private static List<Desktop> desktops;
+    private static List<Desktop> desktops = new ArrayList<Desktop>();;
+
+    public static void incluir(Desktop desktop){
+        desktops.add(desktop);
+        AppImpressao.relatorio("Cadastro do desktop " + desktop.getNome() + " realizado com sucesso!", desktop);
+    }
 
     @GetMapping(value = "/desktop/lista")
     public String telaLista(Model model) {
-
-
-        Desktop d1 = new Desktop();
-        d1.setCodigo(1);
-        d1.setNome("Desktop Dell Workstation Precision 3460");;
-        d1.setMensalidade(250);;
-        d1.setProcessador("Core i3 12th");;
-        d1.setMemoria(8);
-        d1.setHd("512GB");
-
-        Desktop d2 = new Desktop();
-        d2.setCodigo(2);
-        d2.setNome("Desktop Dell Workstation Precision 3660");;
-        d2.setMensalidade(350);;
-        d2.setProcessador("Core i5 12th");;
-        d2.setMemoria(16);
-        d2.setHd("1TB");
-
-        Desktop d3 = new Desktop();
-        d3.setCodigo(3);
-        d3.setNome("Desktop Dell XPS 8950");;
-        d3.setMensalidade(480);;
-        d3.setProcessador("Core i7 12th");;
-        d3.setMemoria(32);
-        d3.setHd("1TB");
-
-        desktops = new ArrayList<Desktop>();
-        desktops.add(d1);
-        desktops.add(d2);
-        desktops.add(d3);
 
         model.addAttribute("listagem", desktops);
 
