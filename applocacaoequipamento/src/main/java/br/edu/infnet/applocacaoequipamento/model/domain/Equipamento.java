@@ -2,6 +2,8 @@ package br.edu.infnet.applocacaoequipamento.model.domain;
 
 import br.edu.infnet.applocacaoequipamento.interfaces.IPrinter;
 
+import java.util.Objects;
+
 public abstract class Equipamento implements IPrinter {
 
     private String nome;
@@ -41,5 +43,18 @@ public abstract class Equipamento implements IPrinter {
 
     public void setCodigo(int codigo) {
         this.codigo = codigo;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Equipamento)) return false;
+        Equipamento that = (Equipamento) o;
+        return codigo == that.codigo;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(codigo);
     }
 }

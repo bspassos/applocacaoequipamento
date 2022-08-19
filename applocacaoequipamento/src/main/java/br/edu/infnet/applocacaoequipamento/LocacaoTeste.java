@@ -8,7 +8,8 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Component
@@ -29,6 +30,14 @@ public class LocacaoTeste implements ApplicationRunner {
         d1.setMemoria(8);
         d1.setHd("512GB");
 
+        Desktop d2 = new Desktop();
+        d2.setCodigo(1);
+        d2.setNome("Desktop Dell Workstation Precision 3460");;
+        d2.setMensalidade(250);;
+        d2.setProcessador("Core i3 12th");;
+        d2.setMemoria(8);
+        d2.setHd("512GB");
+
         Impressora i1 = new Impressora();
         i1.setCodigo(4);
         i1.setNome("Impressora multifuncional hp DeskJet Ink Advantage 2774 com Wi-Fi");
@@ -47,9 +56,10 @@ public class LocacaoTeste implements ApplicationRunner {
 
         Cliente c1 = new Cliente("Pedro", "12345678900", "pedro@nobarquinho.com");
 
-        List<Equipamento> listaEquipamentoL1 = new ArrayList<Equipamento>();
+        Set<Equipamento> listaEquipamentoL1 = new HashSet<Equipamento>();
 
         listaEquipamentoL1.add(d1);
+        listaEquipamentoL1.add(d2);
         listaEquipamentoL1.add(i1);
 
         Locacao l1 = new Locacao(c1);
@@ -60,7 +70,7 @@ public class LocacaoTeste implements ApplicationRunner {
 
         Cliente c2 = new Cliente("Thiago", "78945612399", "thiago@nobarquinho.com");
 
-        List<Equipamento> listaEquipamentoL2 = new ArrayList<Equipamento>();
+        Set<Equipamento> listaEquipamentoL2 = new HashSet<Equipamento>();
 
         listaEquipamentoL2.add(m1);
 
@@ -72,7 +82,7 @@ public class LocacaoTeste implements ApplicationRunner {
 
         Cliente c3 = new Cliente("Joao", "32165498700", "joao@nobarquinho.com");
 
-        List<Equipamento> listaEquipamentoL3 = new ArrayList<Equipamento>();
+        Set<Equipamento> listaEquipamentoL3 = new HashSet<Equipamento>();
 
         listaEquipamentoL3.add(d1);
         listaEquipamentoL3.add(i1);
