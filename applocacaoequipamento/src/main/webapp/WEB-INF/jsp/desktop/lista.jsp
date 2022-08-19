@@ -5,6 +5,7 @@
   Time: 12:43
   To change this template use File | Settings | File Templates.
 --%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -57,30 +58,16 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>Desktop Dell Workstation Precision 3460</td>
-                <td>250,00</td>
-                <td>1</td>
-                <td>Core i3 12th</td>
-                <td>8</td>
-                <td>512GB</td>
-            </tr>
-            <tr>
-                <td>Desktop Dell Workstation Precision 3660</td>
-                <td>350,00</td>
-                <td>2</td>
-                <td>Core i5 12th</td>
-                <td>16</td>
-                <td>1TB</td>
-            </tr>
-            <tr>
-                <td>Desktop Dell XPS 8950</td>
-                <td>480,00</td>
-                <td>3</td>
-                <td>Core i7 12th</td>
-                <td>32</td>
-                <td>1TB</td>
-            </tr>
+            <c:forEach var="d" items="${listagem}">
+                <tr>
+                    <td>${d.nome}</td>
+                    <td>${d.mensalidade}</td>
+                    <td>${d.codigo}</td>
+                    <td>${d.processador}</td>
+                    <td>${d.memoria}</td>
+                    <td>${d.hd}</td>
+                </tr>
+            </c:forEach>
             </tbody>
         </table>
 
