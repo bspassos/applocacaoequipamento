@@ -19,6 +19,10 @@ public class Locacao implements IPrinter {
         this.cliente = cliente;
     }
 
+    public LocalDateTime getData() {
+        return data;
+    }
+
     public Integer getId() {
         return id;
     }

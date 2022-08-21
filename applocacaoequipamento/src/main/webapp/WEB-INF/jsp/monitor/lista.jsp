@@ -49,6 +49,7 @@
         <table class="table table-striped">
             <thead>
             <tr>
+                <th>Id</th>
                 <th>Nome</th>
                 <th>Mensalidade</th>
                 <th>Código</th>
@@ -59,16 +60,16 @@
             </tr>
             </thead>
             <tbody>
-            <c:forEach var="d" items="${listagem}">
+            <c:forEach var="m" items="${listagem}">
                 <tr>
-                    <td>${d.id}</td>
-                    <td>${d.nome}</td>
-                    <td>${d.mensalidade}</td>
-                    <td>${d.codigo}</td>
-                    <td>${d.tela}</td>
-                    <td>${d.resolucao}</td>
-                    <td>${d.portas}</td>
-                    <td><a href="/monitor/${d.id}/excluir">excluir</a></td>
+                    <td>${m.id}</td>
+                    <td>${m.nome}</td>
+                    <td>${m.mensalidade}</td>
+                    <td>${m.codigo}</td>
+                    <td>${m.tela}</td>
+                    <td>${m.resolucao}</td>
+                    <td>${m.portas}</td>
+                    <td><a href="/monitor/${m.id}/excluir">excluir</a></td>
                 </tr>
             </c:forEach>
             </tbody>

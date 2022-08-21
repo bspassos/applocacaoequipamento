@@ -49,6 +49,7 @@
         <table class="table table-striped">
             <thead>
             <tr>
+                <th>Id</th>
                 <th>Nome</th>
                 <th>Mensalidade</th>
                 <th>Código</th>
@@ -59,16 +60,16 @@
             </tr>
             </thead>
             <tbody>
-            <c:forEach var="d" items="${listagem}">
+            <c:forEach var="i" items="${listagem}">
                 <tr>
-                    <td>${d.id}</td>
-                    <td>${d.nome}</td>
-                    <td>${d.mensalidade}</td>
-                    <td>${d.codigo}</td>
-                    <td>${d.tipo}</td>
-                    <td>${d.marca}</td>
-                    <td>${d.tanqueDeTinta}</td>
-                    <td><a href="/impressora/${d.id}/excluir">excluir</a></td>
+                    <td>${i.id}</td>
+                    <td>${i.nome}</td>
+                    <td>${i.mensalidade}</td>
+                    <td>${i.codigo}</td>
+                    <td>${i.tipo}</td>
+                    <td>${i.marca}</td>
+                    <td>${i.tanqueDeTinta}</td>
+                    <td><a href="/impressora/${i.id}/excluir">excluir</a></td>
                 </tr>
             </c:forEach>
             </tbody>

@@ -5,6 +5,7 @@
   Time: 12:43
   To change this template use File | Settings | File Templates.
 --%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -48,27 +49,23 @@
         <table class="table table-striped">
             <thead>
             <tr>
+                <th>Id</th>
                 <th>Descrição</th>
                 <th>Data</th>
                 <th>Meses</th>
+                <th>&nbsp;</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>Locação 1</td>
-                <td>15/07/2022 às 09:00</td>
-                <td>3</td>
-            </tr>
-            <tr>
-                <td>Locação 2</td>
-                <td>05/08/2022 às 16:00</td>
-                <td>6</td>
-            </tr>
-            <tr>
-                <td>Locação 3</td>
-                <td>10/08/2022 às 15:00</td>
-                <td>12</td>
-            </tr>
+            <c:forEach var="l" items="${listagem}">
+                <tr>
+                    <td>${l.id}</td>
+                    <td>${l.descricao}</td>
+                    <td>${l.data}</td>
+                    <td>${l.meses}</td>
+                    <td><a href="/locacao/${l.id}/excluir">excluir</a></td>
+                </tr>
+            </c:forEach>
             </tbody>
         </table>
 

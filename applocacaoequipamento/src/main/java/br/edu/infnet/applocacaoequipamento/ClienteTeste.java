@@ -1,5 +1,6 @@
 package br.edu.infnet.applocacaoequipamento;
 
+import br.edu.infnet.applocacaoequipamento.controller.ClienteController;
 import br.edu.infnet.applocacaoequipamento.model.domain.Cliente;
 import br.edu.infnet.applocacaoequipamento.model.test.AppImpressao;
 import org.springframework.boot.ApplicationArguments;
@@ -18,13 +19,13 @@ public class ClienteTeste implements ApplicationRunner {
         System.out.println("######cliente");
 
         Cliente c1 = new Cliente("Pedro", "12345678900", "pedro@nobarquinho.com");
-        AppImpressao.relatorio("Cadastrado o cliente " + c1.getNome(), c1);
+        ClienteController.incluir(c1);
 
         Cliente c2 = new Cliente("Thiago", "78945612399", "thiago@nobarquinho.com");
-        AppImpressao.relatorio("Cadastrado o cliente " + c2.getNome(), c2);
+        ClienteController.incluir(c2);
 
         Cliente c3 = new Cliente("Joao", "32165498700", "joao@nobarquinho.com");
-        AppImpressao.relatorio("Cadastrado o cliente " + c3.getNome(), c3);
+        ClienteController.incluir(c3);
 
         System.out.println("===================================================");
 

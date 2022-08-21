@@ -1,5 +1,6 @@
 package br.edu.infnet.applocacaoequipamento;
 
+import br.edu.infnet.applocacaoequipamento.controller.LocacaoController;
 import br.edu.infnet.applocacaoequipamento.model.domain.*;
 import br.edu.infnet.applocacaoequipamento.model.test.AppImpressao;
 import org.springframework.boot.ApplicationArguments;
@@ -34,7 +35,7 @@ public class LocacaoTeste implements ApplicationRunner {
         d2.setCodigo(1);
         d2.setNome("Desktop Dell Workstation Precision 3460");;
         d2.setMensalidade(250);;
-        d2.setProcessador("Core i3 12th");;
+        d2.setProcessador("Core i3 12th");
         d2.setMemoria(8);
         d2.setHd("512GB");
 
@@ -66,7 +67,8 @@ public class LocacaoTeste implements ApplicationRunner {
         l1.setDescricao("Locação 1");
         l1.setMeses(3);
         l1.setEquipamentos(listaEquipamentoL1);
-        AppImpressao.relatorio("Cadastrado a locação " + l1.getDescricao(), l1);
+        LocacaoController.incluir(l1);
+        //AppImpressao.relatorio("Cadastrado a locação " + l1.getDescricao(), l1);
 
         Cliente c2 = new Cliente("Thiago", "78945612399", "thiago@nobarquinho.com");
 
@@ -78,7 +80,8 @@ public class LocacaoTeste implements ApplicationRunner {
         l2.setDescricao("Locação 2");
         l2.setMeses(6);
         l2.setEquipamentos(listaEquipamentoL2);
-        AppImpressao.relatorio("Cadastrado a locação " + l2.getDescricao(), l2);
+        LocacaoController.incluir(l2);
+        //AppImpressao.relatorio("Cadastrado a locação " + l2.getDescricao(), l2);
 
         Cliente c3 = new Cliente("Joao", "32165498700", "joao@nobarquinho.com");
 
@@ -92,7 +95,8 @@ public class LocacaoTeste implements ApplicationRunner {
         l3.setDescricao("Locação 3");
         l3.setMeses(12);
         l3.setEquipamentos(listaEquipamentoL3);
-        AppImpressao.relatorio("Cadastrado a locação " + l3.getDescricao(), l3);
+        LocacaoController.incluir(l3);
+        //AppImpressao.relatorio("Cadastrado a locação " + l3.getDescricao(), l3);
 
         System.out.println("===================================================");
     }
