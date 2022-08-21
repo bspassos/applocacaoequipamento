@@ -6,12 +6,20 @@ import java.util.Objects;
 
 public abstract class Equipamento implements IPrinter {
 
+    private Integer id;
     private String nome;
     private float mensalidade;
     private int codigo;
 
     public abstract float calcularPontosFidelidade();
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 //    public float calcularPontosFidelidade() {
 //        return mensalidade;//para cada real gasto irá gerar 1 ponto.
 //    }

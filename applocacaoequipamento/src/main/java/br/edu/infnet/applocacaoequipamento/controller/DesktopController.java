@@ -6,24 +6,31 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @Controller
 public class DesktopController {
 
-    private static List<Desktop> desktops = new ArrayList<Desktop>();;
+    private static Map<Integer, Desktop> mapaDesktop = new HashMap<Integer, Desktop>();
+    private static Integer id = 1;
 
     public static void incluir(Desktop desktop){
-        desktops.add(desktop);
+        desktop.setId(id++);
+        mapaDesktop.put(desktop.getId(), desktop);
+
         AppImpressao.relatorio("Cadastro do desktop " + desktop.getNome() + " realizado com sucesso!", desktop);
+    }
+
+    public static Collection<Desktop> obterLista(){
+        return mapaDesktop.values();
     }
 
     @GetMapping(value = "/desktop/lista")
     public String telaLista(Model model) {
 
-        model.addAttribute("listagem", desktops);
+        model.addAttribute("listagem", obterLista());
 
         return "desktop/lista";
     }
+
 }

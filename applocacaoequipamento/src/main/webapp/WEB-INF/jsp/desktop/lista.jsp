@@ -49,6 +49,7 @@
         <table class="table table-striped">
             <thead>
             <tr>
+                <th>Id</th>
                 <th>Nome</th>
                 <th>Mensalidade</th>
                 <th>Código</th>
@@ -60,6 +61,7 @@
             <tbody>
             <c:forEach var="d" items="${listagem}">
                 <tr>
+                    <td>${d.id}</td>
                     <td>${d.nome}</td>
                     <td>${d.mensalidade}</td>
                     <td>${d.codigo}</td>

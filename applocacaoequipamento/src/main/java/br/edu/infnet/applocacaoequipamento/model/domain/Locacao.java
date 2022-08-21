@@ -7,6 +7,7 @@ import java.util.Set;
 
 public class Locacao implements IPrinter {
 
+    private Integer id;
     private String descricao;
     private LocalDateTime data;
     private int meses;
@@ -16,6 +17,14 @@ public class Locacao implements IPrinter {
     public Locacao(Cliente cliente) {
         this.data = LocalDateTime.now();
         this.cliente = cliente;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     @Override
