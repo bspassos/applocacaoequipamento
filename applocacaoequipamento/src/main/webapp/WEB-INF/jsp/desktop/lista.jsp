@@ -56,6 +56,7 @@
                 <th>Processador</th>
                 <th>Memória</th>
                 <th>HD</th>
+                <th>&nbsp;</th>
             </tr>
             </thead>
             <tbody>
@@ -68,6 +69,7 @@
                     <td>${d.processador}</td>
                     <td>${d.memoria}</td>
                     <td>${d.hd}</td>
+                    <td><a href="/desktop/${d.id}/excluir">excluir</a></td>
                 </tr>
             </c:forEach>
             </tbody>

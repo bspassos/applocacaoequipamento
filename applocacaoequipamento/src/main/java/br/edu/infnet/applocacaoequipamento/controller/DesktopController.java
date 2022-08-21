@@ -5,6 +5,7 @@ import br.edu.infnet.applocacaoequipamento.model.test.AppImpressao;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.*;
 
@@ -25,12 +26,24 @@ public class DesktopController {
         return mapaDesktop.values();
     }
 
+    public static void excluir(Integer id){
+        mapaDesktop.remove(id);
+    }
+
     @GetMapping(value = "/desktop/lista")
     public String telaLista(Model model) {
 
         model.addAttribute("listagem", obterLista());
 
         return "desktop/lista";
+    }
+
+    @GetMapping(value = "/desktop/{id}/excluir")
+    public String exclusao(@PathVariable Integer id) {
+
+        excluir(id);
+
+        return "redirect:/desktop/lista";
     }
 
 }
