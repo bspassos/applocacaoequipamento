@@ -1,5 +1,7 @@
 package br.edu.infnet.applocacaoequipamento;
 
+import br.edu.infnet.applocacaoequipamento.controller.ImpressoraController;
+import br.edu.infnet.applocacaoequipamento.controller.MonitorController;
 import br.edu.infnet.applocacaoequipamento.model.domain.Monitor;
 import br.edu.infnet.applocacaoequipamento.model.test.AppImpressao;
 import org.springframework.boot.ApplicationArguments;
@@ -23,8 +25,7 @@ public class MonitorTeste implements ApplicationRunner {
         m1.setTela(18.5f);
         m1.setResolucao("1366x768");
         m1.setPortas("DisplayPort e VGA");
-
-        AppImpressao.relatorio("Cadastro do monitor " + m1.getNome(), m1);
+        MonitorController.incluir(m1);
 
         Monitor m2 = new Monitor();
         m2.setCodigo(8);
@@ -33,8 +34,7 @@ public class MonitorTeste implements ApplicationRunner {
         m2.setTela(21.5f);
         m2.setResolucao("1920x1080");
         m2.setPortas("HDMI e VGA");
-
-        AppImpressao.relatorio("Cadastro do monitor " + m2.getNome(), m2);
+        MonitorController.incluir(m2);
 
         Monitor m3 = new Monitor();
         m3.setCodigo(9);
@@ -43,8 +43,7 @@ public class MonitorTeste implements ApplicationRunner {
         m3.setTela(23);
         m3.setResolucao("1920x1080");
         m3.setPortas("DisplayPort, VGA e HDMI");
-
-        AppImpressao.relatorio("Cadastro do monitor " + m3.getNome(), m3);
+        MonitorController.incluir(m3);
 
         System.out.println("===================================================");
     }

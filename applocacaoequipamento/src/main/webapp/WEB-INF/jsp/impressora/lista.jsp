@@ -5,6 +5,7 @@
   Time: 12:43
   To change this template use File | Settings | File Templates.
 --%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -54,33 +55,22 @@
                 <th>Tipo</th>
                 <th>Marca</th>
                 <th>Tanque de Tinta</th>
+                <th>&nbsp;</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>Impressora multifuncional hp DeskJet Ink Advantage 2774 com Wi-Fi</td>
-                <td>30</td>
-                <td>4</td>
-                <td>Deskjet</td>
-                <td>HP</td>
-                <td>Não</td>
-            </tr>
-            <tr>
-                <td>Impressora multifuncional deskjet tanque hp 416</td>
-                <td>60</td>
-                <td>5</td>
-                <td>Deskjet</td>
-                <td>HP</td>
-                <td>Sim</td>
-            </tr>
-            <tr>
-                <td>Impressora Laser Monocromática, Xerox, B210, 30 PPM, A4</td>
-                <td>400</td>
-                <td>6</td>
-                <td>Laser</td>
-                <td>Xerox</td>
-                <td>Não</td>
-            </tr>
+            <c:forEach var="d" items="${listagem}">
+                <tr>
+                    <td>${d.id}</td>
+                    <td>${d.nome}</td>
+                    <td>${d.mensalidade}</td>
+                    <td>${d.codigo}</td>
+                    <td>${d.tipo}</td>
+                    <td>${d.marca}</td>
+                    <td>${d.tanqueDeTinta}</td>
+                    <td><a href="/impressora/${d.id}/excluir">excluir</a></td>
+                </tr>
+            </c:forEach>
             </tbody>
         </table>
 

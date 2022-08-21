@@ -5,6 +5,7 @@
   Time: 12:43
   To change this template use File | Settings | File Templates.
 --%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -54,33 +55,22 @@
                 <th>Tela</th>
                 <th>Resolução</th>
                 <th>Portas</th>
+                <th>&nbsp;</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>7</td>
-                <td>Monitor Dell 18.5" E1920H</td>
-                <td>100,00</td>
-                <td>18.5f</td>
-                <td>1920x1080</td>
-                <td>HDMI e VGA</td>
-            </tr>
-            <tr>
-                <td>Monitor Dell de 21.5" SE2222H</td>
-                <td>180,00</td>
-                <td>8</td>
-                <td>21.5"</td>
-                <td>1920x1080</td>
-                <td>HDMI e VGA</td>
-            </tr>
-            <tr>
-                <td>Monitor 23" Dell P2319H</td>
-                <td>250,00</td>
-                <td>9</td>
-                <td>23</td>
-                <td>1920x1080</td>
-                <td>DisplayPort, VGA e HDMI</td>
-            </tr>
+            <c:forEach var="d" items="${listagem}">
+                <tr>
+                    <td>${d.id}</td>
+                    <td>${d.nome}</td>
+                    <td>${d.mensalidade}</td>
+                    <td>${d.codigo}</td>
+                    <td>${d.tela}</td>
+                    <td>${d.resolucao}</td>
+                    <td>${d.portas}</td>
+                    <td><a href="/monitor/${d.id}/excluir">excluir</a></td>
+                </tr>
+            </c:forEach>
             </tbody>
         </table>
 

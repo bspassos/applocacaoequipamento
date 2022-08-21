@@ -1,5 +1,6 @@
 package br.edu.infnet.applocacaoequipamento;
 
+import br.edu.infnet.applocacaoequipamento.controller.ImpressoraController;
 import br.edu.infnet.applocacaoequipamento.model.domain.Impressora;
 import br.edu.infnet.applocacaoequipamento.model.test.AppImpressao;
 import org.springframework.boot.ApplicationArguments;
@@ -23,8 +24,7 @@ public class ImpressoraTeste implements ApplicationRunner {
         i1.setTipo("Deskjet");
         i1.setMarca("HP");
         i1.setTanqueDeTinta(false);
-
-        AppImpressao.relatorio("Cadastro da impressora " + i1.getNome(), i1);
+        ImpressoraController.incluir(i1);
 
         Impressora i2 = new Impressora();
         i2.setCodigo(5);
@@ -33,8 +33,7 @@ public class ImpressoraTeste implements ApplicationRunner {
         i2.setTipo("Deskjet");
         i2.setMarca("HP");
         i2.setTanqueDeTinta(true);
-
-        AppImpressao.relatorio("Cadastro da impressora " + i2.getNome(), i2);
+        ImpressoraController.incluir(i2);
 
         Impressora i3 = new Impressora();
         i3.setCodigo(6);
@@ -43,8 +42,7 @@ public class ImpressoraTeste implements ApplicationRunner {
         i3.setTipo("Laser");
         i3.setMarca("Xerox");
         i3.setTanqueDeTinta(false);
-
-        AppImpressao.relatorio("Cadastro da impressora " + i3.getNome(), i3);
+        ImpressoraController.incluir(i3);
 
         System.out.println("===================================================");
 
