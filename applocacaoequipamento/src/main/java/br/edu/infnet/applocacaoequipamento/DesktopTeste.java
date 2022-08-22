@@ -24,6 +24,7 @@ public class DesktopTeste implements ApplicationRunner {
         d1.setProcessador("Core i3 12th");;
         d1.setMemoria(8);
         d1.setHd("512GB");
+        System.out.println("Cálculo de pontos de fidelidade: " + d1.calcularPontosFidelidade());
         DesktopController.incluir(d1);
 
         Desktop d2 = new Desktop();
@@ -33,6 +34,7 @@ public class DesktopTeste implements ApplicationRunner {
         d2.setProcessador("Core i5 12th");;
         d2.setMemoria(16);
         d2.setHd("1TB");
+        System.out.println("Cálculo de pontos de fidelidade: " + d2.calcularPontosFidelidade());
         DesktopController.incluir(d2);
 
         Desktop d3 = new Desktop();
@@ -42,6 +44,7 @@ public class DesktopTeste implements ApplicationRunner {
         d3.setProcessador("Core i7 12th");;
         d3.setMemoria(32);
         d3.setHd("1TB");
+        System.out.println("Cálculo de pontos de fidelidade: " + d3.calcularPontosFidelidade());
         DesktopController.incluir(d3);
 
         System.out.println("===================================================");

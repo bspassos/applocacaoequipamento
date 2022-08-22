@@ -26,7 +26,7 @@ public abstract class Equipamento implements IPrinter {
 
     @Override
     public String toString() {
-        return nome + ";" + mensalidade + ";" + codigo + ";" + calcularPontosFidelidade();
+        return nome + ";" + mensalidade + ";" + codigo;
     }
 
     public String getNome() {
