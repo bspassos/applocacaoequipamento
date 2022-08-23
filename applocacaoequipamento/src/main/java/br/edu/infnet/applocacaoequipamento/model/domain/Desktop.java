@@ -19,7 +19,7 @@ public class Desktop extends Equipamento {
     public float calcularPontosFidelidade() throws MemoriaDesktopInvalidaException {
 
         if(memoria < 8){
-            throw new MemoriaDesktopInvalidaException("Impossível preencher a memoria com valor menor que 8");
+            throw new MemoriaDesktopInvalidaException("Impossível preencher a memoria (" + memoria + ") com valor menor que 8");
         }
 
         //produto do tipo Desktop usa um multiplicador de pontos de acordo com a memória
