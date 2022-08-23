@@ -1,6 +1,7 @@
 package br.edu.infnet.applocacaoequipamento.model.domain;
 
 import br.edu.infnet.applocacaoequipamento.interfaces.IPrinter;
+import br.edu.infnet.applocacaoequipamento.model.exception.MemoriaDesktopInvalidaException;
 
 import java.util.Objects;
 
@@ -11,7 +12,7 @@ public abstract class Equipamento implements IPrinter {
     private float mensalidade;
     private int codigo;
 
-    public abstract float calcularPontosFidelidade();
+    public abstract float calcularPontosFidelidade() throws MemoriaDesktopInvalidaException;
 
     public Integer getId() {
         return id;

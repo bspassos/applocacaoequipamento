@@ -1,5 +1,7 @@
 package br.edu.infnet.applocacaoequipamento.model.domain;
 
+import br.edu.infnet.applocacaoequipamento.model.exception.MemoriaDesktopInvalidaException;
+
 public class Desktop extends Equipamento {
 
     private String processador;
@@ -14,7 +16,12 @@ public class Desktop extends Equipamento {
     }
 
     @Override
-    public float calcularPontosFidelidade() {
+    public float calcularPontosFidelidade() throws MemoriaDesktopInvalidaException {
+
+        if(memoria < 8){
+            throw new MemoriaDesktopInvalidaException("Impossível preencher a memoria com valor menor que 8");
+        }
+
         //produto do tipo Desktop usa um multiplicador de pontos de acordo com a memória
         float multiplicador = memoria < 16 ? 1.5f : 2;
 
