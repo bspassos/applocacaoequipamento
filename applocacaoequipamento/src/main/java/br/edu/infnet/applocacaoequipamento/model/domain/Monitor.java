@@ -1,5 +1,8 @@
 package br.edu.infnet.applocacaoequipamento.model.domain;
 
+
+import br.edu.infnet.applocacaoequipamento.model.exception.TelaMonitorInvalidaException;
+
 public class Monitor extends Equipamento {
 
     private float tela;
@@ -14,7 +17,16 @@ public class Monitor extends Equipamento {
     }
 
     @Override
-    public float calcularPontosFidelidade() {
+    public float calcularPontosFidelidade() throws TelaMonitorInvalidaException {
+
+        if(tela < 14){
+            throw new TelaMonitorInvalidaException("Impossível preencher a tela (" + tela + ") com valor menor que 14");
+        }
+
+        if(tela > 32){
+            throw new TelaMonitorInvalidaException("Impossível preencher a tela (" + tela + ") com valor maior que 32");
+        }
+
         //Produto do tipo monitor só oferece duas pontuações.
         return tela > 20 ? 200 : 100;
     }
