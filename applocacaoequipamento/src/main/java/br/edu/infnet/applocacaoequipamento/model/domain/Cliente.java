@@ -1,6 +1,7 @@
 package br.edu.infnet.applocacaoequipamento.model.domain;
 
 import br.edu.infnet.applocacaoequipamento.interfaces.IPrinter;
+import br.edu.infnet.applocacaoequipamento.model.exception.CpfInvalidoException;
 
 import java.time.LocalDateTime;
 
@@ -11,14 +12,14 @@ public class Cliente implements IPrinter {
     private String cpf;
     private String email;
 
-    public Cliente(String nome, String cpf, String email) throws Exception {
+    public Cliente(String nome, String cpf, String email) throws CpfInvalidoException {
 
         if(cpf == null){
-            throw new Exception("Não é possível aceitar CPF nulo!");
+            throw new CpfInvalidoException("Não é possível aceitar CPF nulo!");
         }
 
         if(cpf.isEmpty()){
-            throw new Exception("Não é possível aceitar CPF sem preenchimento!");
+            throw new CpfInvalidoException("Não é possível aceitar CPF sem preenchimento!");
         }
 
         this.nome = nome;

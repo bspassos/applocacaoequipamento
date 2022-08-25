@@ -2,6 +2,7 @@ package br.edu.infnet.applocacaoequipamento;
 
 import br.edu.infnet.applocacaoequipamento.controller.ClienteController;
 import br.edu.infnet.applocacaoequipamento.model.domain.Cliente;
+import br.edu.infnet.applocacaoequipamento.model.exception.CpfInvalidoException;
 import br.edu.infnet.applocacaoequipamento.model.test.AppImpressao;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -21,35 +22,35 @@ public class ClienteTeste implements ApplicationRunner {
         try {
             Cliente c1 = new Cliente("Pedro", "12345678900", "pedro@nobarquinho.com");
             ClienteController.incluir(c1);
-        } catch (Exception e) {
+        } catch (CpfInvalidoException e) {
             System.out.println("[ERROR - CLIENTE] " + e.getMessage());
         }
 
         try {
             Cliente c2 = new Cliente("Thiago", "78945612399", "thiago@nobarquinho.com");
             ClienteController.incluir(c2);
-        } catch (Exception e) {
+        } catch (CpfInvalidoException e) {
             System.out.println("[ERROR - CLIENTE] " + e.getMessage());
         }
 
         try {
             Cliente c3 = new Cliente("Joao", "32165498700", "joao@nobarquinho.com");
             ClienteController.incluir(c3);
-        } catch (Exception e) {
+        } catch (CpfInvalidoException e) {
             System.out.println("[ERROR - CLIENTE] " + e.getMessage());
         }
 
         try{
             Cliente c4 = new Cliente("CPF Nulo", null, "cpfnulo@foradobarquinho.com");
             ClienteController.incluir(c4);
-        } catch (Exception e) {
+        } catch (CpfInvalidoException e) {
             System.out.println("[ERROR - CLIENTE] " + e.getMessage());
         }
 
         try{
             Cliente c5 = new Cliente("CPF vazio", "", "cpfvazio@foradobarquinho.com");
             ClienteController.incluir(c5);
-        } catch (Exception e) {
+        } catch (CpfInvalidoException e) {
             System.out.println("[ERROR - CLIENTE] " + e.getMessage());
         }
 

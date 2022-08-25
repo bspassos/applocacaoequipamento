@@ -21,7 +21,7 @@ public class LocacaoController {
         locacao.setId(id++);
         mapaLocacao.put(locacao.getId(), locacao);
 
-        AppImpressao.relatorio("Cadastro do locacao " + locacao.getDescricao() + " realizado com sucesso!", locacao);
+        AppImpressao.relatorio("Cadastro da locacao " + locacao.getDescricao() + " realizado com sucesso!", locacao);
     }
 
     public static Collection<Locacao> obterLista(){

@@ -1,6 +1,8 @@
 package br.edu.infnet.applocacaoequipamento.model.domain;
 
 import br.edu.infnet.applocacaoequipamento.interfaces.IPrinter;
+import br.edu.infnet.applocacaoequipamento.model.exception.ClienteNuloException;
+import br.edu.infnet.applocacaoequipamento.model.exception.LocacaoSemEquipamentoException;
 
 import java.time.LocalDateTime;
 import java.util.Set;
@@ -14,9 +16,23 @@ public class Locacao implements IPrinter {
     private Cliente cliente;
     private Set<Equipamento> equipamentos;
 
-    public Locacao(Cliente cliente) {
+    public Locacao(Cliente cliente, Set<Equipamento> equipamentos) throws ClienteNuloException, LocacaoSemEquipamentoException {
+
+        if(cliente == null){
+            throw new ClienteNuloException("Impossível criar uma Locação sem um cliente!");
+        }
+
+        if(equipamentos == null){
+            throw new LocacaoSemEquipamentoException("Impossível criar uma locação sem uma listagem de equipamentos associada!");
+        }
+
+        if(equipamentos.size() < 1){
+            throw new LocacaoSemEquipamentoException("Impossível criar uma locação com menos de um equipamento!");
+        }
+
         this.data = LocalDateTime.now();
         this.cliente = cliente;
+        this.equipamentos = equipamentos;
     }
 
     public LocalDateTime getData() {
@@ -48,14 +64,6 @@ public class Locacao implements IPrinter {
 
     public int getMeses() {
         return meses;
-    }
-
-    public Set<Equipamento> getEquipamentos() {
-        return equipamentos;
-    }
-
-    public void setEquipamentos(Set<Equipamento> equipamentos) {
-        this.equipamentos = equipamentos;
     }
 
     public void setMeses(int meses) {
