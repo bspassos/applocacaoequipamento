@@ -73,7 +73,6 @@ public class LocacaoTeste implements ApplicationRunner {
             l1.setDescricao("Locação 1");
             l1.setMeses(3);
             LocacaoController.incluir(l1);
-            //AppImpressao.relatorio("Cadastrado a locação " + l1.getDescricao(), l1);
         } catch (CpfInvalidoException | ClienteNuloException | LocacaoSemEquipamentoException e) {
             System.out.println("[ERROR - LOCACAO] " + e.getMessage());
         }
@@ -110,7 +109,6 @@ public class LocacaoTeste implements ApplicationRunner {
             l3.setDescricao("Locação 3");
             l3.setMeses(12);
             LocacaoController.incluir(l3);
-            //AppImpressao.relatorio("Cadastrado a locação " + l3.getDescricao(), l3);
         } catch (CpfInvalidoException | ClienteNuloException | LocacaoSemEquipamentoException e) {
             System.out.println("[ERROR - LOCACAO] " + e.getMessage());
         }
@@ -129,7 +127,6 @@ public class LocacaoTeste implements ApplicationRunner {
             l4.setDescricao("Locação 4");
             l4.setMeses(12);
             LocacaoController.incluir(l4);
-            //AppImpressao.relatorio("Cadastrado a locação " + l4.getDescricao(), l4);
         } catch (CpfInvalidoException | ClienteNuloException | LocacaoSemEquipamentoException e) {
             System.out.println("[ERROR - LOCACAO] " + e.getMessage());
         }
@@ -145,7 +142,6 @@ public class LocacaoTeste implements ApplicationRunner {
             l5.setDescricao("Locação 5");
             l5.setMeses(12);
             LocacaoController.incluir(l5);
-            //AppImpressao.relatorio("Cadastrado a locação " + l5.getDescricao(), l5);
         } catch (CpfInvalidoException | ClienteNuloException | LocacaoSemEquipamentoException e) {
             System.out.println("[ERROR - LOCACAO] " + e.getMessage());
         }
@@ -162,7 +158,6 @@ public class LocacaoTeste implements ApplicationRunner {
             l6.setDescricao("Locação 6");
             l6.setMeses(12);
             LocacaoController.incluir(l6);
-            //AppImpressao.relatorio("Cadastrado a locação " + l6.getDescricao(), l6);
         } catch (CpfInvalidoException | ClienteNuloException | LocacaoSemEquipamentoException e) {
             System.out.println("[ERROR - LOCACAO] " + e.getMessage());
         }

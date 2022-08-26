@@ -53,6 +53,26 @@ public class Locacao implements IPrinter {
         System.out.println(this);
     }
 
+    public void setData(LocalDateTime data) {
+        this.data = data;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public Set<Equipamento> getEquipamentos() {
+        return equipamentos;
+    }
+
+    public void setEquipamentos(Set<Equipamento> equipamentos) {
+        this.equipamentos = equipamentos;
+    }
+
     public String getDescricao() {
         return descricao;
     }

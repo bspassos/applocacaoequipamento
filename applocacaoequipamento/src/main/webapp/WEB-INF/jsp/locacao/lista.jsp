@@ -53,6 +53,8 @@
                 <th>Descrição</th>
                 <th>Data</th>
                 <th>Meses</th>
+                <th>Solicitante</th>
+                <th>Produtos</th>
                 <th>&nbsp;</th>
             </tr>
             </thead>
@@ -63,6 +65,8 @@
                     <td>${l.descricao}</td>
                     <td>${l.data}</td>
                     <td>${l.meses}</td>
+                    <td>${l.cliente}</td>
+                    <td>${l.equipamentos}</td>
                     <td><a href="/locacao/${l.id}/excluir">excluir</a></td>
                 </tr>
             </c:forEach>
