@@ -1,0 +1,3 @@
+Pedro;12345678900;pedro@nobarquinho.com;
+Thiago;78945612399;thiago@nobarquinho.com;
+João;32165498700;joao@nobarquinho.com;
