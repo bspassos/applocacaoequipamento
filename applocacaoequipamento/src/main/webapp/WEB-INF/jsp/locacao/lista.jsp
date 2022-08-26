@@ -65,8 +65,8 @@
                     <td>${l.descricao}</td>
                     <td>${l.data}</td>
                     <td>${l.meses}</td>
-                    <td>${l.cliente}</td>
-                    <td>${l.equipamentos}</td>
+                    <td>${l.cliente.nome}</td>
+                    <td>${l.equipamentos.size()}</td>
                     <td><a href="/locacao/${l.id}/excluir">excluir</a></td>
                 </tr>
             </c:forEach>

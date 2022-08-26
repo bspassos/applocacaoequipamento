@@ -11,6 +11,10 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
@@ -35,12 +39,12 @@ public class LocacaoTeste implements ApplicationRunner {
         d1.setHd("512GB");
 
         Desktop d2 = new Desktop();
-        d2.setCodigo(1);
-        d2.setNome("Desktop Dell Workstation Precision 3460");;
-        d2.setMensalidade(250);;
-        d2.setProcessador("Core i3 12th");
-        d2.setMemoria(8);
-        d2.setHd("512GB");
+        d2.setCodigo(2);
+        d2.setNome("Desktop Dell Workstation Precision 3660");;
+        d2.setMensalidade(350);;
+        d2.setProcessador("Core i5 12th");;
+        d2.setMemoria(16);
+        d2.setHd("1TB");
 
         Impressora i1 = new Impressora();
         i1.setCodigo(4);
@@ -60,109 +64,54 @@ public class LocacaoTeste implements ApplicationRunner {
 
         //-----------------------------------------------------------------------------------------
 
-
-        try {
-            Set<Equipamento> listaEquipamentoL1 = new HashSet<Equipamento>();
-            listaEquipamentoL1.add(d1);
-            listaEquipamentoL1.add(d2);
-            listaEquipamentoL1.add(i1);
-
-            Cliente c1 = new Cliente("Pedro", "12345678900", "pedro@nobarquinho.com");
-
-            Locacao l1 = new Locacao(c1, listaEquipamentoL1);
-            l1.setDescricao("Locação 1");
-            l1.setMeses(3);
-            LocacaoController.incluir(l1);
-        } catch (CpfInvalidoException | ClienteNuloException | LocacaoSemEquipamentoException e) {
-            System.out.println("[ERROR - LOCACAO] " + e.getMessage());
-        }
-
-        //-----------------------------------------------------------------------------------------
-
+        String dir = "/aula_java/";
+        String arq = "locacoes.txt";
 
         try{
-            Set<Equipamento> listaEquipamentoL2 = new HashSet<Equipamento>();
-            listaEquipamentoL2.add(m1);
+            try {
+                FileReader fileReader = new FileReader(dir+arq);
+                BufferedReader leitura = new BufferedReader(fileReader);
 
-            Cliente c2 = new Cliente("Thiago", "78945612399", "thiago@nobarquinho.com");
+                String linha = leitura.readLine();
+                while (linha != null){
 
-            Locacao l2 = new Locacao(c2, listaEquipamentoL2);
-            l2.setDescricao("Locação 2");
-            l2.setMeses(6);
-            LocacaoController.incluir(l2);
-            //AppImpressao.relatorio("Cadastrado a locação " + l2.getDescricao(), l2);
-        } catch (CpfInvalidoException | ClienteNuloException | LocacaoSemEquipamentoException e) {
-            System.out.println("[ERROR - LOCACAO] " + e.getMessage());
+                    try {
+
+                        String[] campos = linha.split(";");
+
+                        Set<Equipamento> listaEquipamentoL1 = new HashSet<Equipamento>();
+                        listaEquipamentoL1.add(d1);
+                        listaEquipamentoL1.add(d2);
+                        listaEquipamentoL1.add(i1);
+                        listaEquipamentoL1.add(m1);
+
+                        Cliente c1 = new Cliente(campos[2], campos[3], campos[4]);
+
+                        Locacao l1 = new Locacao(c1, listaEquipamentoL1);
+                        l1.setDescricao(campos[0]);
+                        l1.setMeses(Integer.parseInt(campos[1]));
+                        LocacaoController.incluir(l1);
+                    } catch (CpfInvalidoException | ClienteNuloException | LocacaoSemEquipamentoException e) {
+                        System.out.println("[ERROR - LOCACAO] " + e.getMessage());
+                    }
+
+
+                    linha = leitura.readLine();
+                }
+
+                leitura.close();
+                fileReader.close();
+            } catch (FileNotFoundException e) {
+                System.out.println("[ERRO] O arquivo não existe!!!");
+            } catch (IOException e) {
+                System.out.println("[ERRO] Problema no fechamento do arquivo!!!");
+            }
+        }finally {
+            System.out.println("Terminou!!!");
         }
 
         //-----------------------------------------------------------------------------------------
 
-        try{
-            Set<Equipamento> listaEquipamentoL3 = new HashSet<Equipamento>();
-            listaEquipamentoL3.add(d1);
-            listaEquipamentoL3.add(i1);
-            listaEquipamentoL3.add(m1);
-
-            Cliente c3 = new Cliente("Joao", "32165498700", "joao@nobarquinho.com");
-
-            Locacao l3 = new Locacao(c3, listaEquipamentoL3);
-            l3.setDescricao("Locação 3");
-            l3.setMeses(12);
-            LocacaoController.incluir(l3);
-        } catch (CpfInvalidoException | ClienteNuloException | LocacaoSemEquipamentoException e) {
-            System.out.println("[ERROR - LOCACAO] " + e.getMessage());
-        }
-
-        //-----------------------------------------------------------------------------------------
-
-        try{
-            Set<Equipamento> listaEquipamentoL4 = new HashSet<Equipamento>();
-            listaEquipamentoL4.add(d1);
-            listaEquipamentoL4.add(i1);
-            listaEquipamentoL4.add(m1);
-
-            Cliente c4 = new Cliente("Joao", "42165498700", "joao@nobarquinho.com");
-
-            Locacao l4 = new Locacao(null, listaEquipamentoL4);
-            l4.setDescricao("Locação 4");
-            l4.setMeses(12);
-            LocacaoController.incluir(l4);
-        } catch (CpfInvalidoException | ClienteNuloException | LocacaoSemEquipamentoException e) {
-            System.out.println("[ERROR - LOCACAO] " + e.getMessage());
-        }
-
-        //-----------------------------------------------------------------------------------------
-
-        try{
-            Set<Equipamento> listaEquipamentoL5 = new HashSet<Equipamento>();
-
-            Cliente c5 = new Cliente("Joao", "52165598700", "joao@nobarquinho.com");
-
-            Locacao l5 = new Locacao(c5, listaEquipamentoL5);
-            l5.setDescricao("Locação 5");
-            l5.setMeses(12);
-            LocacaoController.incluir(l5);
-        } catch (CpfInvalidoException | ClienteNuloException | LocacaoSemEquipamentoException e) {
-            System.out.println("[ERROR - LOCACAO] " + e.getMessage());
-        }
-
-        //-----------------------------------------------------------------------------------------
-
-
-        try{
-            Set<Equipamento> listaEquipamentoL6 = null;
-
-            Cliente c6 = new Cliente("Joao", "62166698700", "joao@nobarquinho.com");
-
-            Locacao l6 = new Locacao(c6, listaEquipamentoL6);
-            l6.setDescricao("Locação 6");
-            l6.setMeses(12);
-            LocacaoController.incluir(l6);
-        } catch (CpfInvalidoException | ClienteNuloException | LocacaoSemEquipamentoException e) {
-            System.out.println("[ERROR - LOCACAO] " + e.getMessage());
-        }
-
-        //-----------------------------------------------------------------------------------------
 
         System.out.println("===================================================");
     }
