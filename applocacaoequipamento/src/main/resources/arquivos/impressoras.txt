@@ -1,0 +1,3 @@
+4;Impressora multifuncional hp DeskJet Ink Advantage 2774 com Wi-Fi;30;Deskjet;HP;false;
+5;Impressora multifuncional deskjet tanque hp 416;60;Deskjet;HP;true;
+6;Impressora Laser Monocromática, Xerox, B210, 30 PPM, A4;400;Laser;Xerox;false;

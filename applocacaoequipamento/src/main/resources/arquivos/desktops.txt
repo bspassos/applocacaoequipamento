@@ -1,0 +1,3 @@
+1;Desktop Dell Workstation Precision 3460;250;Core i3 12th;8;512GB;
+2;Desktop Dell Workstation Precision 3660;350;Core i5 12th;16;1TB;
+3;Desktop Dell XPS 8950;480;Core i7 12th;32;1TB;
