@@ -1,6 +1,6 @@
 # Instruções para leitura dos arquivos.
 
-Os arquivos de exemplo estão na pasta resorcues/arquivos
+Os arquivos de exemplo estão na pasta src/main/resources/arquivos
 
 Eles devem ser copiados para uma pasta no HD e seu caminho alterado nas classes de teste.
 
