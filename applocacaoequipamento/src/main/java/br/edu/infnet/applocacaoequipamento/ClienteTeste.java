@@ -64,6 +64,22 @@ public class ClienteTeste implements ApplicationRunner {
             System.out.println("Terminou!!!");
         }
 
+        //TESTANDO EXCEÇÕES------------------------------------------------------
+        try{
+            Cliente c4 = new Cliente("CPF Nulo", null, "cpfnulo@foradobarquinho.com");
+            ClienteController.incluir(c4);
+        } catch (CpfInvalidoException e) {
+            System.out.println("[ERROR - CLIENTE] " + e.getMessage());
+        }
+
+        try{
+            Cliente c5 = new Cliente("CPF vazio", "", "cpfvazio@foradobarquinho.com");
+            ClienteController.incluir(c5);
+        } catch (CpfInvalidoException e) {
+            System.out.println("[ERROR - CLIENTE] " + e.getMessage());
+        }
+        //-----------------------------------------------------------------------
+
         System.out.println("===================================================");
 
     }

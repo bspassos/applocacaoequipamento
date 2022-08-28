@@ -112,6 +112,51 @@ public class LocacaoTeste implements ApplicationRunner {
 
         //-----------------------------------------------------------------------------------------
 
+        //TESTANDO EXCEÇÕES------------------------------------------------------
+
+        try{
+            Set<Equipamento> listaEquipamentoL4 = new HashSet<Equipamento>();
+            listaEquipamentoL4.add(d1);
+            listaEquipamentoL4.add(i1);
+            listaEquipamentoL4.add(m1);
+
+            Cliente c4 = new Cliente("Joao", "42165498700", "joao@nobarquinho.com");
+
+            Locacao l4 = new Locacao(null, listaEquipamentoL4);
+            l4.setDescricao("Locação 4");
+            l4.setMeses(12);
+            LocacaoController.incluir(l4);
+        } catch (CpfInvalidoException | ClienteNuloException | LocacaoSemEquipamentoException e) {
+            System.out.println("[ERROR - LOCACAO] " + e.getMessage());
+        }
+
+        try{
+            Set<Equipamento> listaEquipamentoL5 = new HashSet<Equipamento>();
+
+            Cliente c5 = new Cliente("Joao", "52165598700", "joao@nobarquinho.com");
+
+            Locacao l5 = new Locacao(c5, listaEquipamentoL5);
+            l5.setDescricao("Locação 5");
+            l5.setMeses(12);
+            LocacaoController.incluir(l5);
+        } catch (CpfInvalidoException | ClienteNuloException | LocacaoSemEquipamentoException e) {
+            System.out.println("[ERROR - LOCACAO] " + e.getMessage());
+        }
+
+        try{
+            Set<Equipamento> listaEquipamentoL6 = null;
+
+            Cliente c6 = new Cliente("Joao", "62166698700", "joao@nobarquinho.com");
+
+            Locacao l6 = new Locacao(c6, listaEquipamentoL6);
+            l6.setDescricao("Locação 6");
+            l6.setMeses(12);
+            LocacaoController.incluir(l6);
+        } catch (CpfInvalidoException | ClienteNuloException | LocacaoSemEquipamentoException e) {
+            System.out.println("[ERROR - LOCACAO] " + e.getMessage());
+        }
+
+        //-----------------------------------------------------------------------
 
         System.out.println("===================================================");
     }

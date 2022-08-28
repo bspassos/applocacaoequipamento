@@ -64,6 +64,24 @@ public class ImpressoraTeste implements ApplicationRunner {
             System.out.println("Terminou!!!");
         }
 
+        //TESTANDO EXCEÇÕES------------------------------------------------------
+
+        try {
+            Impressora i4 = new Impressora();
+            i4.setCodigo(6);
+            i4.setNome("Impressora Laser Monocromática, Xerox, B210, 30 PPM, A4");
+            i4.setMensalidade(400);
+            i4.setTipo(null);
+            i4.setMarca("Xerox");
+            i4.setTanqueDeTinta(false);
+            System.out.println("Cálculo de pontos de fidelidade: " + i4.calcularPontosFidelidade());
+            ImpressoraController.incluir(i4);
+        } catch (TipoImpressoraNuloException e) {
+            System.out.println("[ERROR - IMPRESSORA] " + e.getMessage());
+        }
+
+        //-----------------------------------------------------------------------
+
         System.out.println("===================================================");
 
     }

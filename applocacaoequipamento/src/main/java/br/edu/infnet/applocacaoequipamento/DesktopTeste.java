@@ -66,6 +66,23 @@ public class DesktopTeste implements ApplicationRunner {
             System.out.println("Terminou!!!");
         }
 
+        //TESTANDO EXCEÇÕES------------------------------------------------------
+
+        try {
+            Desktop d4 = new Desktop();
+            d4.setCodigo(3);
+            d4.setNome("Desktop Dell XPS 8950");;
+            d4.setMensalidade(480);;
+            d4.setProcessador("Core i7 12th");;
+            d4.setMemoria(4);
+            d4.setHd("1TB");
+            System.out.println("Cálculo de pontos de fidelidade: " + d4.calcularPontosFidelidade());
+            DesktopController.incluir(d4);
+        } catch (MemoriaDesktopInvalidaException e) {
+            System.out.println("[ERROR - DESKTOP] " + e.getMessage());
+        }
+
+        //-----------------------------------------------------------------------
 
 
         System.out.println("===================================================");

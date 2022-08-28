@@ -62,6 +62,38 @@ public class MonitorTeste implements ApplicationRunner {
             System.out.println("Terminou!!!");
         }
 
+        //TESTANDO EXCEÇÕES------------------------------------------------------
+
+        try{
+            Monitor m4 = new Monitor();
+            m4.setCodigo(9);
+            m4.setNome("Monitor 23\" Dell P2319H");
+            m4.setMensalidade(250);
+            m4.setTela(12);
+            m4.setResolucao("1920x1080");
+            m4.setPortas("DisplayPort, VGA e HDMI");
+            System.out.println("Cálculo de pontos de fidelidade: " + m4.calcularPontosFidelidade());
+            MonitorController.incluir(m4);
+        } catch (TelaMonitorInvalidaException e) {
+            System.out.println("[ERROR - MONITOR] " + e.getMessage());
+        }
+
+        try{
+            Monitor m5 = new Monitor();
+            m5.setCodigo(9);
+            m5.setNome("Monitor 23\" Dell P2319H");
+            m5.setMensalidade(250);
+            m5.setTela(42);
+            m5.setResolucao("1920x1080");
+            m5.setPortas("DisplayPort, VGA e HDMI");
+            System.out.println("Cálculo de pontos de fidelidade: " + m5.calcularPontosFidelidade());
+            MonitorController.incluir(m5);
+        } catch (TelaMonitorInvalidaException e) {
+            System.out.println("[ERROR - MONITOR] " + e.getMessage());
+        }
+
+        //-----------------------------------------------------------------------
+
         System.out.println("===================================================");
     }
 }
