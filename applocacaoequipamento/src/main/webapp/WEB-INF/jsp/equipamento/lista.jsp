@@ -13,33 +13,7 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-sm bg-info navbar-dark">
-        <div class="container-fluid">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link active" href="/">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/desktop/lista">Desktop</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/impressora/lista">Impressora</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/monitor/lista">Monitor</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/equipamento/lista">Equipamento</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/cliente/lista">Cliente</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/locacao/lista">Locação</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <c:import url="/WEB-INF/jsp/menu.jsp"/>
 
     <div class="container mt-3">
 
