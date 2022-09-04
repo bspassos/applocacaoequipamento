@@ -39,6 +39,10 @@ public class UsuarioController {
         return mapaUsuario.values();
     }
 
+    public static void excluir(String email){
+        mapaUsuario.remove(email);
+    }
+
     @GetMapping(value = "/usuario/lista")
     public String telaLista(Model model) {
 
@@ -61,5 +65,12 @@ public class UsuarioController {
         return "redirect:/";
     }
 
+    @GetMapping(value = "/usuario/{email}/excluir")
+    public String exclusao(@PathVariable String email) {
+
+        excluir(email);
+
+        return "redirect:/usuario/lista";
+    }
 
 }
