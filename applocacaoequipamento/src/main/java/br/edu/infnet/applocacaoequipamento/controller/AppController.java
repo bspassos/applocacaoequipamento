@@ -1,5 +1,6 @@
 package br.edu.infnet.applocacaoequipamento.controller;
 
+import br.edu.infnet.applocacaoequipamento.model.domain.Usuario;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,11 +26,11 @@ public class AppController {
         System.out.println("[email " + email +"]");
         System.out.println("[senha " + senha +"]");
 
-        if(email.equalsIgnoreCase(senha)){
+        Usuario usuario = UsuarioController.validar(email, senha);
 
-            String nome = "Admin";
+        if(usuario != null){
 
-            model.addAttribute("user", nome);
+            model.addAttribute("user", usuario.getNome());
 
             return "home";
         }

@@ -16,6 +16,17 @@ public class UsuarioController {
 
     private static Map<String, Usuario> mapaUsuario = new HashMap<String, Usuario>();
 
+    public static Usuario validar(String email, String senha){
+
+        Usuario usuario = mapaUsuario.get(email);
+
+        if(usuario != null && usuario.getSenha().equals(senha)){
+            return usuario;
+        }
+
+        return null;
+    }
+
     public static void incluir(Usuario usuario){
 
         mapaUsuario.put(usuario.getEmail(), usuario);
