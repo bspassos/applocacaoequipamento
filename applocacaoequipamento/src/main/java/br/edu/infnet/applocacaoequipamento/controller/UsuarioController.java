@@ -2,6 +2,7 @@ package br.edu.infnet.applocacaoequipamento.controller;
 
 import br.edu.infnet.applocacaoequipamento.model.domain.Usuario;
 import br.edu.infnet.applocacaoequipamento.model.service.UsuarioService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,10 +12,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class UsuarioController {
 
+    @Autowired
+    UsuarioService usuarioService;
+
     @GetMapping(value = "/usuario/lista")
     public String telaLista(Model model) {
 
-        model.addAttribute("listagem", UsuarioService.obterLista());
+        model.addAttribute("listagem", usuarioService.obterLista());
 
         return "usuario/lista";
     }
@@ -28,7 +32,7 @@ public class UsuarioController {
     @PostMapping(value = "/usuario/incluir")
     public String incluir(Usuario usuario) {
 
-        UsuarioService.incluir(usuario);
+        usuarioService.incluir(usuario);
 
         return "redirect:/";
     }
@@ -36,7 +40,7 @@ public class UsuarioController {
     @GetMapping(value = "/usuario/{email}/excluir")
     public String excluir(@PathVariable String email) {
 
-        UsuarioService.excluir(email);
+        usuarioService.excluir(email);
 
         return "redirect:/usuario/lista";
     }

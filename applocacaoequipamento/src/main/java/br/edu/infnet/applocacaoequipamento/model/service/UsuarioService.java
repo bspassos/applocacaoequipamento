@@ -13,7 +13,7 @@ public class UsuarioService {
 
     private static Map<String, Usuario> mapaUsuario = new HashMap<String, Usuario>();
 
-    public static Usuario validar(String email, String senha){
+    public Usuario validar(String email, String senha){
 
         Usuario usuario = mapaUsuario.get(email);
 
@@ -24,18 +24,18 @@ public class UsuarioService {
         return null;
     }
 
-    public static void incluir(Usuario usuario){
+    public void incluir(Usuario usuario){
 
         mapaUsuario.put(usuario.getEmail(), usuario);
 
         AppImpressao.relatorio("Cadastro do usuario " + usuario.getNome() + " realizado com sucesso!", usuario);
     }
 
-    public static Collection<Usuario> obterLista(){
+    public Collection<Usuario> obterLista(){
         return mapaUsuario.values();
     }
 
-    public static void excluir(String email){
+    public void excluir(String email){
         mapaUsuario.remove(email);
     }
 
