@@ -1,7 +1,7 @@
 package br.edu.infnet.applocacaoequipamento;
 
-import br.edu.infnet.applocacaoequipamento.controller.UsuarioController;
 import br.edu.infnet.applocacaoequipamento.model.domain.Usuario;
+import br.edu.infnet.applocacaoequipamento.model.service.UsuarioService;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
@@ -25,7 +25,7 @@ public class UsuarioTeste implements ApplicationRunner {
         usuario.setEmail("admin@admin.com");
         usuario.setNome("Administrador");
         usuario.setSenha("123");
-        UsuarioController.incluir(usuario);
+        UsuarioService.incluir(usuario);
 
         System.out.println("===================================================");
 
