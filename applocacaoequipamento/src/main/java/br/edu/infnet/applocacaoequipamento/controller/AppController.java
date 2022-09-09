@@ -1,7 +1,10 @@
 package br.edu.infnet.applocacaoequipamento.controller;
 
 import br.edu.infnet.applocacaoequipamento.model.domain.Usuario;
+import br.edu.infnet.applocacaoequipamento.model.domain.app.Projeto;
+import br.edu.infnet.applocacaoequipamento.model.service.AppService;
 import br.edu.infnet.applocacaoequipamento.model.service.UsuarioService;
+import br.edu.infnet.applocacaoequipamento.model.test.AppImpressao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,10 +21,14 @@ import javax.servlet.http.HttpSession;
 public class AppController {
 
     @Autowired
-    UsuarioService usuarioService;
+    private UsuarioService usuarioService;
+    @Autowired
+    private AppService appService;
 
     @GetMapping(value = "/")
-    public String telaHome() {
+    public String telaHome(Model model) {
+
+        model.addAttribute("projeto", appService.obterProjeto());
         return "home";
     }
 

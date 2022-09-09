@@ -1,0 +1,29 @@
+P;AppLocacaoEquipamento;Projeto de Gestão de Locação de Equipamentos
+C;Usuario
+A;nome;String;O nome do usuário
+A;email;String;O e-mail do usuário
+A;senha;String;A senha do usuário
+C;Locacao
+A;descricao;String;Descrição da locação
+A;data;LocalDateTime;Data de inicio da locação
+A;meses;int;Quantidade de meses de duração da locação
+C;Cliente
+A;nome;String;Nome do cliente
+A;cpf;String;Cpf do cliente
+A;email;String;E-mail do cliente
+C;Equipamento
+A;nome;String;Nome do equipamento
+A;mensalidade;float;Valor da mensalidade do equipamento
+A;codigo;int;Código do equipamento
+C;Desktop
+A;processador;String;Informações do processador do desktop
+A;memoria;int;Quantidade de memória ram em GB
+A;hd;String;Tamanho do HD em GB ou TB
+C;Monitor
+A;tela;float;Tamanho da tela em polegadas
+A;resolucao;String;Resolução do monitor
+A;portas;String;Portas de entrada do monitor
+C;Impressora
+A;tipo;String;Tipo da Impressora
+A;marca;String;Marca da Impressora
+A;tanqueDeTinta;boolean;Se a impressora possui tanque de tinta
