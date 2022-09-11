@@ -4,6 +4,8 @@ package br.edu.infnet.applocacaoequipamento;
 import br.edu.infnet.applocacaoequipamento.controller.ImpressoraController;
 import br.edu.infnet.applocacaoequipamento.model.domain.Impressora;
 import br.edu.infnet.applocacaoequipamento.model.exception.TipoImpressoraNuloException;
+import br.edu.infnet.applocacaoequipamento.model.service.ImpressoraService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
@@ -17,6 +19,9 @@ import java.io.IOException;
 @Component
 @Order(5)
 public class ImpressoraTeste implements ApplicationRunner {
+
+    @Autowired
+    ImpressoraService impressoraService;
 
     @Override
     public void run(ApplicationArguments args) {
@@ -45,7 +50,7 @@ public class ImpressoraTeste implements ApplicationRunner {
                         i1.setMarca(campos[4]);
                         i1.setTanqueDeTinta(Boolean.parseBoolean(campos[5]));
                         System.out.println("Cálculo de pontos de fidelidade: " + i1.calcularPontosFidelidade());
-                        ImpressoraController.incluir(i1);
+                        impressoraService.incluir(i1);
                     } catch (TipoImpressoraNuloException e) {
                         System.out.println("[ERROR - IMPRESSORA] " + e.getMessage());
                     }
@@ -75,7 +80,7 @@ public class ImpressoraTeste implements ApplicationRunner {
             i4.setMarca("Xerox");
             i4.setTanqueDeTinta(false);
             System.out.println("Cálculo de pontos de fidelidade: " + i4.calcularPontosFidelidade());
-            ImpressoraController.incluir(i4);
+            impressoraService.incluir(i4);
         } catch (TipoImpressoraNuloException e) {
             System.out.println("[ERROR - IMPRESSORA] " + e.getMessage());
         }

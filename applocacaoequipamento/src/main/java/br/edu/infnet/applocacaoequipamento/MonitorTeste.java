@@ -3,6 +3,8 @@ package br.edu.infnet.applocacaoequipamento;
 import br.edu.infnet.applocacaoequipamento.controller.MonitorController;
 import br.edu.infnet.applocacaoequipamento.model.domain.Monitor;
 import br.edu.infnet.applocacaoequipamento.model.exception.TelaMonitorInvalidaException;
+import br.edu.infnet.applocacaoequipamento.model.service.MonitorService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
@@ -16,6 +18,9 @@ import java.io.IOException;
 @Component
 @Order(4)
 public class MonitorTeste implements ApplicationRunner {
+
+    @Autowired
+    MonitorService monitorService;
 
     @Override
     public void run(ApplicationArguments args) {
@@ -43,7 +48,7 @@ public class MonitorTeste implements ApplicationRunner {
                         m1.setResolucao(campos[4]);
                         m1.setPortas(campos[5]);
                         System.out.println("Cálculo de pontos de fidelidade: " + m1.calcularPontosFidelidade());
-                        MonitorController.incluir(m1);
+                        monitorService.incluir(m1);
                     } catch (TelaMonitorInvalidaException e) {
                         System.out.println("[ERROR - DESKTOP] " + e.getMessage());
                     }
@@ -73,7 +78,7 @@ public class MonitorTeste implements ApplicationRunner {
             m4.setResolucao("1920x1080");
             m4.setPortas("DisplayPort, VGA e HDMI");
             System.out.println("Cálculo de pontos de fidelidade: " + m4.calcularPontosFidelidade());
-            MonitorController.incluir(m4);
+            monitorService.incluir(m4);
         } catch (TelaMonitorInvalidaException e) {
             System.out.println("[ERROR - MONITOR] " + e.getMessage());
         }
@@ -87,7 +92,7 @@ public class MonitorTeste implements ApplicationRunner {
             m5.setResolucao("1920x1080");
             m5.setPortas("DisplayPort, VGA e HDMI");
             System.out.println("Cálculo de pontos de fidelidade: " + m5.calcularPontosFidelidade());
-            MonitorController.incluir(m5);
+            monitorService.incluir(m5);
         } catch (TelaMonitorInvalidaException e) {
             System.out.println("[ERROR - MONITOR] " + e.getMessage());
         }

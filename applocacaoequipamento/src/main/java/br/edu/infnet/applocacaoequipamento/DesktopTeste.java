@@ -6,7 +6,9 @@ import br.edu.infnet.applocacaoequipamento.model.domain.Cliente;
 import br.edu.infnet.applocacaoequipamento.model.domain.Desktop;
 import br.edu.infnet.applocacaoequipamento.model.exception.CpfInvalidoException;
 import br.edu.infnet.applocacaoequipamento.model.exception.MemoriaDesktopInvalidaException;
+import br.edu.infnet.applocacaoequipamento.model.service.DesktopService;
 import br.edu.infnet.applocacaoequipamento.model.test.AppImpressao;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
@@ -20,6 +22,9 @@ import java.io.IOException;
 @Component
 @Order(3)
 public class DesktopTeste implements ApplicationRunner {
+
+    @Autowired
+    DesktopService desktopService;
 
     @Override
     public void run(ApplicationArguments args) {
@@ -47,7 +52,7 @@ public class DesktopTeste implements ApplicationRunner {
                         d1.setMemoria(Integer.parseInt(campos[4]));
                         d1.setHd(campos[5]);
                         System.out.println("Cálculo de pontos de fidelidade: " + d1.calcularPontosFidelidade());
-                        DesktopController.incluir(d1);
+                        desktopService.incluir(d1);
                     } catch (MemoriaDesktopInvalidaException e) {
                         System.out.println("[ERROR - DESKTOP] " + e.getMessage());
                     }
@@ -77,7 +82,7 @@ public class DesktopTeste implements ApplicationRunner {
             d4.setMemoria(4);
             d4.setHd("1TB");
             System.out.println("Cálculo de pontos de fidelidade: " + d4.calcularPontosFidelidade());
-            DesktopController.incluir(d4);
+            desktopService.incluir(d4);
         } catch (MemoriaDesktopInvalidaException e) {
             System.out.println("[ERROR - DESKTOP] " + e.getMessage());
         }

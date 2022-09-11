@@ -5,7 +5,9 @@ import br.edu.infnet.applocacaoequipamento.model.domain.*;
 import br.edu.infnet.applocacaoequipamento.model.exception.ClienteNuloException;
 import br.edu.infnet.applocacaoequipamento.model.exception.CpfInvalidoException;
 import br.edu.infnet.applocacaoequipamento.model.exception.LocacaoSemEquipamentoException;
+import br.edu.infnet.applocacaoequipamento.model.service.LocacaoService;
 import br.edu.infnet.applocacaoequipamento.model.test.AppImpressao;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
@@ -23,6 +25,9 @@ import java.util.Set;
 @Component
 @Order(2)
 public class LocacaoTeste implements ApplicationRunner {
+
+    @Autowired
+    LocacaoService locacaoService;
 
     @Override
     public void run(ApplicationArguments args) {
@@ -90,7 +95,7 @@ public class LocacaoTeste implements ApplicationRunner {
                         Locacao l1 = new Locacao(c1, listaEquipamentoL1);
                         l1.setDescricao(campos[0]);
                         l1.setMeses(Integer.parseInt(campos[1]));
-                        LocacaoController.incluir(l1);
+                        locacaoService.incluir(l1);
                     } catch (CpfInvalidoException | ClienteNuloException | LocacaoSemEquipamentoException e) {
                         System.out.println("[ERROR - LOCACAO] " + e.getMessage());
                     }
@@ -125,7 +130,7 @@ public class LocacaoTeste implements ApplicationRunner {
             Locacao l4 = new Locacao(null, listaEquipamentoL4);
             l4.setDescricao("Locação 4");
             l4.setMeses(12);
-            LocacaoController.incluir(l4);
+            locacaoService.incluir(l4);
         } catch (CpfInvalidoException | ClienteNuloException | LocacaoSemEquipamentoException e) {
             System.out.println("[ERROR - LOCACAO] " + e.getMessage());
         }
@@ -138,7 +143,7 @@ public class LocacaoTeste implements ApplicationRunner {
             Locacao l5 = new Locacao(c5, listaEquipamentoL5);
             l5.setDescricao("Locação 5");
             l5.setMeses(12);
-            LocacaoController.incluir(l5);
+            locacaoService.incluir(l5);
         } catch (CpfInvalidoException | ClienteNuloException | LocacaoSemEquipamentoException e) {
             System.out.println("[ERROR - LOCACAO] " + e.getMessage());
         }
@@ -151,7 +156,7 @@ public class LocacaoTeste implements ApplicationRunner {
             Locacao l6 = new Locacao(c6, listaEquipamentoL6);
             l6.setDescricao("Locação 6");
             l6.setMeses(12);
-            LocacaoController.incluir(l6);
+            locacaoService.incluir(l6);
         } catch (CpfInvalidoException | ClienteNuloException | LocacaoSemEquipamentoException e) {
             System.out.println("[ERROR - LOCACAO] " + e.getMessage());
         }

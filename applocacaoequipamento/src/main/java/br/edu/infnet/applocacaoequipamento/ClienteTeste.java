@@ -8,7 +8,9 @@ import br.edu.infnet.applocacaoequipamento.model.domain.Locacao;
 import br.edu.infnet.applocacaoequipamento.model.exception.ClienteNuloException;
 import br.edu.infnet.applocacaoequipamento.model.exception.CpfInvalidoException;
 import br.edu.infnet.applocacaoequipamento.model.exception.LocacaoSemEquipamentoException;
+import br.edu.infnet.applocacaoequipamento.model.service.ClienteService;
 import br.edu.infnet.applocacaoequipamento.model.test.AppImpressao;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
@@ -24,6 +26,9 @@ import java.util.Set;
 @Component
 @Order(1)
 public class ClienteTeste implements ApplicationRunner {
+
+    @Autowired
+    ClienteService clienteService;
 
     @Override
     public void run(ApplicationArguments args) {
@@ -45,7 +50,7 @@ public class ClienteTeste implements ApplicationRunner {
                     try {
                         String[] campos = linha.split(";");
                         Cliente c1 = new Cliente(campos[0], campos[1], campos[2]);
-                        ClienteController.incluir(c1);
+                        clienteService.incluir(c1);
                     } catch (CpfInvalidoException e) {
                         System.out.println("[ERROR - CLIENTE] " + e.getMessage());
                     }
@@ -67,14 +72,14 @@ public class ClienteTeste implements ApplicationRunner {
         //TESTANDO EXCEÇÕES------------------------------------------------------
         try{
             Cliente c4 = new Cliente("CPF Nulo", null, "cpfnulo@foradobarquinho.com");
-            ClienteController.incluir(c4);
+            clienteService.incluir(c4);
         } catch (CpfInvalidoException e) {
             System.out.println("[ERROR - CLIENTE] " + e.getMessage());
         }
 
         try{
             Cliente c5 = new Cliente("CPF vazio", "", "cpfvazio@foradobarquinho.com");
-            ClienteController.incluir(c5);
+            clienteService.incluir(c5);
         } catch (CpfInvalidoException e) {
             System.out.println("[ERROR - CLIENTE] " + e.getMessage());
         }
