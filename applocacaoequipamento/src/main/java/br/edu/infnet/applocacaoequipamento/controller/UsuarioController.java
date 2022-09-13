@@ -24,7 +24,7 @@ public class UsuarioController {
     }
 
     @GetMapping(value = "/usuario")
-    public String telaCadastro(Model model) {
+    public String telaCadastro() {
 
         return "usuario/cadastro";
     }

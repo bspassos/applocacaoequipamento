@@ -20,6 +20,8 @@
 
         <h3>Cliente</h3>
 
+        <a class="btn btn-primary" href="/cliente">Novo</a>
+
         <table class="table table-striped">
             <thead>
             <tr>

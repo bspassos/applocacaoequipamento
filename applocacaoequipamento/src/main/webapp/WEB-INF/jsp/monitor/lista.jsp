@@ -18,7 +18,9 @@
 
     <div class="container mt-3">
 
-        <h3>Impressora</h3>
+        <h3>Monitor</h3>
+
+        <a class="btn btn-primary" href="/monitor">Novo</a>
 
         <table class="table table-striped">
             <thead>

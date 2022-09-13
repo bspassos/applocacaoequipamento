@@ -20,6 +20,8 @@
 
         <h3>Impressora</h3>
 
+        <a class="btn btn-primary" href="/impressora">Novo</a>
+
         <table class="table table-striped">
             <thead>
             <tr>

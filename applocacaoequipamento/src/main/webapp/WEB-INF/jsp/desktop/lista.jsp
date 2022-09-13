@@ -20,6 +20,8 @@
 
         <h3>Desktop</h3>
 
+        <a class="btn btn-primary" href="/desktop">Novo</a>
+
         <table class="table table-striped">
             <thead>
             <tr>
