@@ -30,7 +30,7 @@ public class ImpressoraTeste implements ApplicationRunner {
 
 
         String dir = "/aula_java/";
-        String arq = "impressoras.txt";
+        String arq = "produtos.txt";
 
         try{
             try {
@@ -40,19 +40,22 @@ public class ImpressoraTeste implements ApplicationRunner {
                 String linha = leitura.readLine();
                 while (linha != null){
 
-                    try {
-                        String[] campos = linha.split(";");
-                        Impressora i1 = new Impressora();
-                        i1.setCodigo(Integer.parseInt(campos[0]));
-                        i1.setNome(campos[1]);
-                        i1.setMensalidade(Float.parseFloat(campos[2]));
-                        i1.setTipo(campos[3]);
-                        i1.setMarca(campos[4]);
-                        i1.setTanqueDeTinta(Boolean.parseBoolean(campos[5]));
-                        System.out.println("Cálculo de pontos de fidelidade: " + i1.calcularPontosFidelidade());
-                        impressoraService.incluir(i1);
-                    } catch (TipoImpressoraNuloException e) {
-                        System.out.println("[ERROR - IMPRESSORA] " + e.getMessage());
+                    String[] campos = linha.split(";");
+
+                    if("I".equalsIgnoreCase(campos[0])){
+                        try {
+                            Impressora i1 = new Impressora();
+                            i1.setCodigo(Integer.parseInt(campos[1]));
+                            i1.setNome(campos[2]);
+                            i1.setMensalidade(Float.parseFloat(campos[3]));
+                            i1.setTipo(campos[4]);
+                            i1.setMarca(campos[5]);
+                            i1.setTanqueDeTinta(Boolean.parseBoolean(campos[6]));
+                            System.out.println("Cálculo de pontos de fidelidade: " + i1.calcularPontosFidelidade());
+                            impressoraService.incluir(i1);
+                        } catch (TipoImpressoraNuloException e) {
+                            System.out.println("[ERROR - IMPRESSORA] " + e.getMessage());
+                        }
                     }
 
                     linha = leitura.readLine();

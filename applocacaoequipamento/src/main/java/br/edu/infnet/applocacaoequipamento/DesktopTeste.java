@@ -32,7 +32,7 @@ public class DesktopTeste implements ApplicationRunner {
         System.out.println("######desktop");
 
         String dir = "/aula_java/";
-        String arq = "desktops.txt";
+        String arq = "produtos.txt";
 
         try{
             try {
@@ -42,20 +42,24 @@ public class DesktopTeste implements ApplicationRunner {
                 String linha = leitura.readLine();
                 while (linha != null){
 
-                    try {
-                        String[] campos = linha.split(";");
-                        Desktop d1 = new Desktop();
-                        d1.setCodigo(Integer.parseInt(campos[0]));
-                        d1.setNome(campos[1]);
-                        d1.setMensalidade(Float.parseFloat(campos[2]));
-                        d1.setProcessador(campos[3]);
-                        d1.setMemoria(Integer.parseInt(campos[4]));
-                        d1.setHd(campos[5]);
-                        System.out.println("Cálculo de pontos de fidelidade: " + d1.calcularPontosFidelidade());
-                        desktopService.incluir(d1);
-                    } catch (MemoriaDesktopInvalidaException e) {
-                        System.out.println("[ERROR - DESKTOP] " + e.getMessage());
+                    String[] campos = linha.split(";");
+
+                    if("D".equalsIgnoreCase(campos[0])){
+                        try {
+                            Desktop d1 = new Desktop();
+                            d1.setCodigo(Integer.parseInt(campos[1]));
+                            d1.setNome(campos[2]);
+                            d1.setMensalidade(Float.parseFloat(campos[3]));
+                            d1.setProcessador(campos[4]);
+                            d1.setMemoria(Integer.parseInt(campos[5]));
+                            d1.setHd(campos[6]);
+                            System.out.println("Cálculo de pontos de fidelidade: " + d1.calcularPontosFidelidade());
+                            desktopService.incluir(d1);
+                        } catch (MemoriaDesktopInvalidaException e) {
+                            System.out.println("[ERROR - DESKTOP] " + e.getMessage());
+                        }
                     }
+
 
                     linha = leitura.readLine();
                 }

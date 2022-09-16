@@ -20,6 +20,8 @@
 
         <h3>Locação</h3>
 
+        <a class="btn btn-primary" href="/locacao">Novo</a>
+
         <table class="table table-striped">
             <thead>
             <tr>

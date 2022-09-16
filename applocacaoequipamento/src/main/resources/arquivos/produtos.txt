@@ -1,0 +1,9 @@
+D;1;Desktop Dell Workstation Precision 3460;250;Core i3 12th;8;512GB;
+D;2;Desktop Dell Workstation Precision 3660;350;Core i5 12th;16;1TB;
+D;3;Desktop Dell XPS 8950;480;Core i7 12th;32;1TB;
+M;7;Monitor Dell 18.5" E1920H;100;18.5;1366x768;DisplayPort e VGA;
+M;8;Monitor Dell de 21.5" SE2222H;180;21.5;1920x1080;HDMI e VGA;
+M;9;Monitor 23" Dell P2319H";250;23;1920x1080;DisplayPort, VGA e HDMI;
+I;4;Impressora multifuncional hp DeskJet Ink Advantage 2774 com Wi-Fi;30;Deskjet;HP;false;
+I;5;Impressora multifuncional deskjet tanque hp 416;60;Deskjet;HP;true;
+I;6;Impressora--- Laser Monocromática, Xerox, B210, 30 PPM, A4;400;Laser;Xerox;false;

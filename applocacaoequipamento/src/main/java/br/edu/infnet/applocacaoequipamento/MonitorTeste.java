@@ -28,7 +28,7 @@ public class MonitorTeste implements ApplicationRunner {
         System.out.println("######monitor");
 
         String dir = "/aula_java/";
-        String arq = "monitores.txt";
+        String arq = "produtos.txt";
 
         try{
             try {
@@ -38,19 +38,22 @@ public class MonitorTeste implements ApplicationRunner {
                 String linha = leitura.readLine();
                 while (linha != null){
 
-                    try {
-                        String[] campos = linha.split(";");
-                        Monitor m1 = new Monitor();
-                        m1.setCodigo(Integer.parseInt(campos[0]));
-                        m1.setNome(campos[1]);
-                        m1.setMensalidade(Float.parseFloat(campos[2]));
-                        m1.setTela(Float.parseFloat(campos[3]));
-                        m1.setResolucao(campos[4]);
-                        m1.setPortas(campos[5]);
-                        System.out.println("Cálculo de pontos de fidelidade: " + m1.calcularPontosFidelidade());
-                        monitorService.incluir(m1);
-                    } catch (TelaMonitorInvalidaException e) {
-                        System.out.println("[ERROR - DESKTOP] " + e.getMessage());
+                    String[] campos = linha.split(";");
+
+                    if("M".equalsIgnoreCase(campos[0])){
+                        try {
+                            Monitor m1 = new Monitor();
+                            m1.setCodigo(Integer.parseInt(campos[1]));
+                            m1.setNome(campos[2]);
+                            m1.setMensalidade(Float.parseFloat(campos[3]));
+                            m1.setTela(Float.parseFloat(campos[4]));
+                            m1.setResolucao(campos[5]);
+                            m1.setPortas(campos[6]);
+                            System.out.println("Cálculo de pontos de fidelidade: " + m1.calcularPontosFidelidade());
+                            monitorService.incluir(m1);
+                        } catch (TelaMonitorInvalidaException e) {
+                            System.out.println("[ERROR - DESKTOP] " + e.getMessage());
+                        }
                     }
 
                     linha = leitura.readLine();

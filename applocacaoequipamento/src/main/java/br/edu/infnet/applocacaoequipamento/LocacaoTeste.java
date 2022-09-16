@@ -5,6 +5,7 @@ import br.edu.infnet.applocacaoequipamento.model.domain.*;
 import br.edu.infnet.applocacaoequipamento.model.exception.ClienteNuloException;
 import br.edu.infnet.applocacaoequipamento.model.exception.CpfInvalidoException;
 import br.edu.infnet.applocacaoequipamento.model.exception.LocacaoSemEquipamentoException;
+import br.edu.infnet.applocacaoequipamento.model.exception.MemoriaDesktopInvalidaException;
 import br.edu.infnet.applocacaoequipamento.model.service.LocacaoService;
 import br.edu.infnet.applocacaoequipamento.model.test.AppImpressao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 
@@ -35,38 +37,6 @@ public class LocacaoTeste implements ApplicationRunner {
         System.out.println("===================================================");
         System.out.println("######locação");
 
-        Desktop d1 = new Desktop();
-        d1.setCodigo(1);
-        d1.setNome("Desktop Dell Workstation Precision 3460");;
-        d1.setMensalidade(250);;
-        d1.setProcessador("Core i3 12th");;
-        d1.setMemoria(8);
-        d1.setHd("512GB");
-
-        Desktop d2 = new Desktop();
-        d2.setCodigo(2);
-        d2.setNome("Desktop Dell Workstation Precision 3660");;
-        d2.setMensalidade(350);;
-        d2.setProcessador("Core i5 12th");;
-        d2.setMemoria(16);
-        d2.setHd("1TB");
-
-        Impressora i1 = new Impressora();
-        i1.setCodigo(4);
-        i1.setNome("Impressora multifuncional hp DeskJet Ink Advantage 2774 com Wi-Fi");
-        i1.setMensalidade(30);
-        i1.setTipo("Deskjet");
-        i1.setMarca("HP");
-        i1.setTanqueDeTinta(false);
-
-        Monitor m1 = new Monitor();
-        m1.setCodigo(7);
-        m1.setNome("Monitor Dell 18.5\" E1920H");
-        m1.setMensalidade(100);
-        m1.setTela(18.5f);
-        m1.setResolucao("1366x768");
-        m1.setPortas("DisplayPort e VGA");
-
         //-----------------------------------------------------------------------------------------
 
         String dir = "/aula_java/";
@@ -77,31 +47,74 @@ public class LocacaoTeste implements ApplicationRunner {
                 FileReader fileReader = new FileReader(dir+arq);
                 BufferedReader leitura = new BufferedReader(fileReader);
 
+                Set<Equipamento> equipamentos = null;
+                List<Locacao> locacoes = new ArrayList<Locacao>();
+
                 String linha = leitura.readLine();
                 while (linha != null){
 
-                    try {
+                    String[] campos = linha.split(";");
 
-                        String[] campos = linha.split(";");
+                    switch (campos[0].toUpperCase()){
+                        case "L":
+                            try {
 
-                        Set<Equipamento> listaEquipamentoL1 = new HashSet<Equipamento>();
-                        listaEquipamentoL1.add(d1);
-                        listaEquipamentoL1.add(d2);
-                        listaEquipamentoL1.add(i1);
-                        listaEquipamentoL1.add(m1);
+                                equipamentos = new HashSet<Equipamento>();
 
-                        Cliente c1 = new Cliente(campos[2], campos[3], campos[4]);
+                                Cliente cliente = new Cliente(campos[3], campos[4], campos[5]);
 
-                        Locacao l1 = new Locacao(c1, listaEquipamentoL1);
-                        l1.setDescricao(campos[0]);
-                        l1.setMeses(Integer.parseInt(campos[1]));
-                        locacaoService.incluir(l1);
-                    } catch (CpfInvalidoException | ClienteNuloException | LocacaoSemEquipamentoException e) {
-                        System.out.println("[ERROR - LOCACAO] " + e.getMessage());
+                                Locacao locacao = new Locacao(cliente, equipamentos);
+                                locacao.setDescricao(campos[1]);
+                                locacao.setMeses(Integer.parseInt(campos[2]));
+
+                                locacoes.add(locacao);
+                            } catch (CpfInvalidoException | ClienteNuloException | LocacaoSemEquipamentoException e) {
+                                System.out.println("[ERROR - LOCACAO] " + e.getMessage());
+                            }
+                            break;
+                        case "D":
+                            Desktop desktop = new Desktop();
+                            desktop.setCodigo(Integer.parseInt(campos[1]));
+                            desktop.setNome(campos[2]);
+                            desktop.setMensalidade(Float.parseFloat(campos[3]));
+                            desktop.setProcessador(campos[4]);
+                            desktop.setMemoria(Integer.parseInt(campos[5]));
+                            desktop.setHd(campos[6]);
+                            equipamentos.add(desktop);
+                            break;
+                        case "M":
+                            Monitor monitor = new Monitor();
+                            monitor.setCodigo(Integer.parseInt(campos[1]));
+                            monitor.setNome(campos[2]);
+                            monitor.setMensalidade(Float.parseFloat(campos[3]));
+                            monitor.setTela(Float.parseFloat(campos[4]));
+                            monitor.setResolucao(campos[5]);
+                            monitor.setPortas(campos[6]);
+                            equipamentos.add(monitor);
+                            break;
+                        case "I":
+                            Impressora impressora = new Impressora();
+                            impressora.setCodigo(Integer.parseInt(campos[1]));
+                            impressora.setNome(campos[2]);
+                            impressora.setMensalidade(Float.parseFloat(campos[3]));
+                            impressora.setTipo(campos[4]);
+                            impressora.setMarca(campos[5]);
+                            impressora.setTanqueDeTinta(Boolean.parseBoolean(campos[6]));
+                            equipamentos.add(impressora);
+                            break;
+                        default:
+                            break;
                     }
 
-
                     linha = leitura.readLine();
+                }
+
+                for(Locacao l : locacoes){
+                    locacaoService.incluir(l);
+
+                    System.out.println(">>>>>>>>>>>>" + l.getId());
+                    System.out.println(">>>>>>>>>" + l.getCliente().getNome());
+                    System.out.println(">>>>>>" + l.getEquipamentos().size());
                 }
 
                 leitura.close();
@@ -119,7 +132,7 @@ public class LocacaoTeste implements ApplicationRunner {
 
         //TESTANDO EXCEÇÕES------------------------------------------------------
 
-        try{
+        /*try{
             Set<Equipamento> listaEquipamentoL4 = new HashSet<Equipamento>();
             listaEquipamentoL4.add(d1);
             listaEquipamentoL4.add(i1);
@@ -159,7 +172,7 @@ public class LocacaoTeste implements ApplicationRunner {
             locacaoService.incluir(l6);
         } catch (CpfInvalidoException | ClienteNuloException | LocacaoSemEquipamentoException e) {
             System.out.println("[ERROR - LOCACAO] " + e.getMessage());
-        }
+        }*/
 
         //-----------------------------------------------------------------------
 

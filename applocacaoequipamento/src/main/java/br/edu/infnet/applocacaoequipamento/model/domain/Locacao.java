@@ -26,9 +26,9 @@ public class Locacao implements IPrinter {
             throw new LocacaoSemEquipamentoException("Impossível criar uma locação sem uma listagem de equipamentos associada!");
         }
 
-        if(equipamentos.size() < 1){
+        /*if(equipamentos.size() < 1){
             throw new LocacaoSemEquipamentoException("Impossível criar uma locação com menos de um equipamento!");
-        }
+        }*/
 
         this.data = LocalDateTime.now();
         this.cliente = cliente;
