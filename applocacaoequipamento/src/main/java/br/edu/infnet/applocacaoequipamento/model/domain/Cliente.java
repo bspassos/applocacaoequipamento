@@ -3,14 +3,22 @@ package br.edu.infnet.applocacaoequipamento.model.domain;
 import br.edu.infnet.applocacaoequipamento.interfaces.IPrinter;
 import br.edu.infnet.applocacaoequipamento.model.exception.CpfInvalidoException;
 
-import java.time.LocalDateTime;
+import javax.persistence.*;
 
+@Entity
+@Table(name = "TCliente")
 public class Cliente implements IPrinter {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nome;
     private String cpf;
     private String email;
+
+    public Cliente(){
+
+    }
 
     public Cliente(String nome, String cpf, String email) throws CpfInvalidoException {
 
