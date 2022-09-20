@@ -5,6 +5,7 @@ import br.edu.infnet.applocacaoequipamento.controller.LocacaoController;
 import br.edu.infnet.applocacaoequipamento.model.domain.Cliente;
 import br.edu.infnet.applocacaoequipamento.model.domain.Equipamento;
 import br.edu.infnet.applocacaoequipamento.model.domain.Locacao;
+import br.edu.infnet.applocacaoequipamento.model.domain.Usuario;
 import br.edu.infnet.applocacaoequipamento.model.exception.ClienteNuloException;
 import br.edu.infnet.applocacaoequipamento.model.exception.CpfInvalidoException;
 import br.edu.infnet.applocacaoequipamento.model.exception.LocacaoSemEquipamentoException;
@@ -24,7 +25,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Component
-@Order(1)
+@Order(2)
 public class ClienteTeste implements ApplicationRunner {
 
     @Autowired
@@ -35,6 +36,9 @@ public class ClienteTeste implements ApplicationRunner {
 
         System.out.println("===================================================");
         System.out.println("######cliente");
+
+        Usuario usuario = new Usuario();
+        usuario.setId(1);
 
         String dir = "/aula_java/";
         String arq = "clientes.txt";
@@ -47,9 +51,11 @@ public class ClienteTeste implements ApplicationRunner {
                 String linha = leitura.readLine();
                 while (linha != null){
 
+                    String[] campos = linha.split(";");
+
                     try {
-                        String[] campos = linha.split(";");
                         Cliente c1 = new Cliente(campos[0], campos[1], campos[2]);
+                        c1.setUsuario(usuario);
                         clienteService.incluir(c1);
                     } catch (CpfInvalidoException e) {
                         System.out.println("[ERROR - CLIENTE] " + e.getMessage());

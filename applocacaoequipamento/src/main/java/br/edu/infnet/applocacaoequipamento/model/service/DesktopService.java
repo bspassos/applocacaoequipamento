@@ -1,32 +1,32 @@
 package br.edu.infnet.applocacaoequipamento.model.service;
 
 import br.edu.infnet.applocacaoequipamento.model.domain.Desktop;
+import br.edu.infnet.applocacaoequipamento.model.repository.DesktopRepository;
 import br.edu.infnet.applocacaoequipamento.model.test.AppImpressao;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 
 @Service
 public class DesktopService {
 
-    private static Map<Integer, Desktop> mapaDesktop = new HashMap<Integer, Desktop>();
-    private static Integer id = 1;
+    @Autowired
+    private DesktopRepository desktopRepository;
 
     public void incluir(Desktop desktop){
-        desktop.setId(id++);
-        mapaDesktop.put(desktop.getId(), desktop);
+
+        desktopRepository.save(desktop);
 
         AppImpressao.relatorio("Cadastro do desktop " + desktop.getNome() + " realizado com sucesso!", desktop);
     }
 
     public Collection<Desktop> obterLista(){
-        return mapaDesktop.values();
+        return (Collection<Desktop>) desktopRepository.findAll();
     }
 
     public void excluir(Integer id){
-        mapaDesktop.remove(id);
+        desktopRepository.deleteById(id);
     }
 
 }

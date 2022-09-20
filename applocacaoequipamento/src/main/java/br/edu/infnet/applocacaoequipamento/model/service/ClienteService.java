@@ -1,6 +1,7 @@
 package br.edu.infnet.applocacaoequipamento.model.service;
 
 import br.edu.infnet.applocacaoequipamento.model.domain.Cliente;
+import br.edu.infnet.applocacaoequipamento.model.domain.Usuario;
 import br.edu.infnet.applocacaoequipamento.model.repository.ClienteRepository;
 import br.edu.infnet.applocacaoequipamento.model.test.AppImpressao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,10 @@ public class ClienteService {
 
     public Collection<Cliente> obterLista(){
         return (Collection<Cliente>) clienteRepository.findAll();
+    }
+
+    public Collection<Cliente> obterLista(Usuario usuario){
+        return (Collection<Cliente>) clienteRepository.obterLista(usuario.getId());
     }
 
     public void excluir(Integer id){

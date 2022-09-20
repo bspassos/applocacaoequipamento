@@ -25,7 +25,7 @@ import java.util.Set;
 
 
 @Component
-@Order(2)
+@Order(6)
 public class LocacaoTeste implements ApplicationRunner {
 
     @Autowired

@@ -15,6 +15,17 @@ public class Cliente implements IPrinter {
     private String nome;
     private String cpf;
     private String email;
+    @ManyToOne
+    @JoinColumn(name = "idUsuario")
+    private Usuario usuario;
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
 
     public Cliente(){
 

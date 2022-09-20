@@ -3,11 +3,38 @@ package br.edu.infnet.applocacaoequipamento.model.domain;
 import br.edu.infnet.applocacaoequipamento.interfaces.IPrinter;
 import br.edu.infnet.applocacaoequipamento.model.exception.CpfInvalidoException;
 
+import javax.persistence.*;
+import java.util.List;
+
+@Entity
+@Table(name = "TUsuario")
 public class Usuario implements IPrinter {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     private String nome;
     private String email;
     private String senha;
+    @OneToMany
+    @JoinColumn(name = "idUsuario")
+    private List<Cliente> clientes;
+
+    public List<Cliente> getClientes() {
+        return clientes;
+    }
+
+    public void setClientes(List<Cliente> clientes) {
+        this.clientes = clientes;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getNome() {
         return nome;

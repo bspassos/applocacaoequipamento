@@ -2,6 +2,11 @@ package br.edu.infnet.applocacaoequipamento.model.domain;
 
 import br.edu.infnet.applocacaoequipamento.model.exception.TipoImpressoraNuloException;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "TImpressora")
 public class Impressora extends Equipamento {
 
     private String tipo;
@@ -22,7 +27,7 @@ public class Impressora extends Equipamento {
             throw new TipoImpressoraNuloException("Impossível preencher o tipo (" + tipo + ") com valor nulo");
         }
 
-        int pontosAdicionais = tipo == "Laser" ? 200 : 0;
+        int pontosAdicionais = tipo.equals("Laser") ? 200 : 0;
 
         return getMensalidade() + pontosAdicionais;
     }

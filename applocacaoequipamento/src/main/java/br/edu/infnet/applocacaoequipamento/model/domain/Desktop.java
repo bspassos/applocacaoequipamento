@@ -2,6 +2,11 @@ package br.edu.infnet.applocacaoequipamento.model.domain;
 
 import br.edu.infnet.applocacaoequipamento.model.exception.MemoriaDesktopInvalidaException;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "TDesktop")
 public class Desktop extends Equipamento {
 
     private String processador;

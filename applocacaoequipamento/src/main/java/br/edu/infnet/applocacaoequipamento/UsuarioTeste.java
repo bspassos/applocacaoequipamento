@@ -17,7 +17,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 @Component
-@Order(6)
+@Order(1)
 public class UsuarioTeste implements ApplicationRunner {
 
     @Autowired

@@ -5,10 +5,16 @@ import br.edu.infnet.applocacaoequipamento.model.exception.MemoriaDesktopInvalid
 import br.edu.infnet.applocacaoequipamento.model.exception.TelaMonitorInvalidaException;
 import br.edu.infnet.applocacaoequipamento.model.exception.TipoImpressoraNuloException;
 
+import javax.persistence.*;
 import java.util.Objects;
 
+@Entity
+@Table(name = "TEquipamento")
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Equipamento implements IPrinter {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nome;
     private float mensalidade;

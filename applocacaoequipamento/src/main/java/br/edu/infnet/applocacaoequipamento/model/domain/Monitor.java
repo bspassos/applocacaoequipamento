@@ -3,6 +3,11 @@ package br.edu.infnet.applocacaoequipamento.model.domain;
 
 import br.edu.infnet.applocacaoequipamento.model.exception.TelaMonitorInvalidaException;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "TMonitor")
 public class Monitor extends Equipamento {
 
     private float tela;
