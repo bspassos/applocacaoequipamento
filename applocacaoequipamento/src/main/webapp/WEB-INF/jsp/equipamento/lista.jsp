@@ -22,12 +22,6 @@
 
         <h3>Equipamento</h3>
 
-        <ul>
-            <li><a href="/desktop/lista">Desktop</a></li>
-            <li><a href="/impressora/lista">Impressora</a></li>
-            <li><a href="/monitor/lista">Monitor</a></li>
-        </ul>
-
         <table class="table table-striped">
             <thead>
             <tr>
@@ -38,12 +32,13 @@
             </tr>
             </thead>
             <tbody>
-            <c:forEach var="i" items="${listagem}">
+            <c:forEach var="e" items="${listagem}">
                 <tr>
-                    <td>${i.id}</td>
-                    <td>${i.nome}</td>
-                    <td>${i.mensalidade}</td>
-                    <td>${i.codigo}</td>
+                    <td>${e.id}</td>
+                    <td>${e.nome}</td>
+                    <td>${e.mensalidade}</td>
+                    <td>${e.codigo}</td>
+                    <td><a href="/equipamento/${e.id}/excluir">excluir</a></td>
                 </tr>
             </c:forEach>
             </tbody>

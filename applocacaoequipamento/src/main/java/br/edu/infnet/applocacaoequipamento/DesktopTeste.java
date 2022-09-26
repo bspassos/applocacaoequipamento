@@ -4,6 +4,7 @@ import br.edu.infnet.applocacaoequipamento.controller.ClienteController;
 import br.edu.infnet.applocacaoequipamento.controller.DesktopController;
 import br.edu.infnet.applocacaoequipamento.model.domain.Cliente;
 import br.edu.infnet.applocacaoequipamento.model.domain.Desktop;
+import br.edu.infnet.applocacaoequipamento.model.domain.Usuario;
 import br.edu.infnet.applocacaoequipamento.model.exception.CpfInvalidoException;
 import br.edu.infnet.applocacaoequipamento.model.exception.MemoriaDesktopInvalidaException;
 import br.edu.infnet.applocacaoequipamento.model.service.DesktopService;
@@ -31,6 +32,9 @@ public class DesktopTeste implements ApplicationRunner {
         System.out.println("===================================================");
         System.out.println("######desktop");
 
+        Usuario usuario = new Usuario();
+        usuario.setId(1);
+
         String dir = "/aula_java/";
         String arq = "produtos.txt";
 
@@ -54,6 +58,7 @@ public class DesktopTeste implements ApplicationRunner {
                             d1.setMemoria(Integer.parseInt(campos[5]));
                             d1.setHd(campos[6]);
                             System.out.println("Cálculo de pontos de fidelidade: " + d1.calcularPontosFidelidade());
+                            d1.setUsuario(usuario);
                             desktopService.incluir(d1);
                         } catch (MemoriaDesktopInvalidaException e) {
                             System.out.println("[ERROR - DESKTOP] " + e.getMessage());

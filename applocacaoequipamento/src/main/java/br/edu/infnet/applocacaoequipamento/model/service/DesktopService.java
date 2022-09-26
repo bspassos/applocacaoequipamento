@@ -1,6 +1,7 @@
 package br.edu.infnet.applocacaoequipamento.model.service;
 
 import br.edu.infnet.applocacaoequipamento.model.domain.Desktop;
+import br.edu.infnet.applocacaoequipamento.model.domain.Usuario;
 import br.edu.infnet.applocacaoequipamento.model.repository.DesktopRepository;
 import br.edu.infnet.applocacaoequipamento.model.test.AppImpressao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,10 @@ public class DesktopService {
 
     public Collection<Desktop> obterLista(){
         return (Collection<Desktop>) desktopRepository.findAll();
+    }
+
+    public Collection<Desktop> obterLista(Usuario usuario){
+        return (Collection<Desktop>) desktopRepository.findAll(usuario.getId());
     }
 
     public void excluir(Integer id){

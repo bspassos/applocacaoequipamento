@@ -34,7 +34,43 @@ public class LocacaoTeste implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) {
 
-        System.out.println("===================================================");
+        try{
+
+            Usuario usuario = new Usuario();
+            usuario.setId(1);
+
+            Cliente cliente = new Cliente();
+            cliente.setId(1);
+
+            Set<Equipamento> equipamentos = new HashSet<Equipamento>();
+            Desktop d1 = new Desktop();
+            d1.setId(1);
+            d1.setCodigo(123);
+            Desktop d2 = new Desktop();
+            d2.setId(2);
+            d2.setCodigo(456);
+            Desktop d3 = new Desktop();
+            d3.setId(3);
+            d3.setCodigo(789);
+            equipamentos.add(d1);
+            equipamentos.add(d2);
+            equipamentos.add(d3);
+
+            Locacao locacao = new Locacao(cliente, equipamentos);
+            locacao.setDescricao("Primeira Locacao");
+            locacao.setMeses(3);
+            locacao.setCliente(cliente);
+            locacao.setEquipamentos(equipamentos);
+            locacao.setUsuario(usuario);
+            locacaoService.incluir(locacao);
+
+        } catch (ClienteNuloException | LocacaoSemEquipamentoException e) {
+            System.out.println("[ERROR - LOCACAO] " + e.getMessage());
+        }
+
+
+
+        /*System.out.println("===================================================");
         System.out.println("######locação");
 
         //-----------------------------------------------------------------------------------------
@@ -126,55 +162,8 @@ public class LocacaoTeste implements ApplicationRunner {
             }
         }finally {
             System.out.println("Terminou!!!");
-        }
-
-        //-----------------------------------------------------------------------------------------
-
-        //TESTANDO EXCEÇÕES------------------------------------------------------
-
-        /*try{
-            Set<Equipamento> listaEquipamentoL4 = new HashSet<Equipamento>();
-            listaEquipamentoL4.add(d1);
-            listaEquipamentoL4.add(i1);
-            listaEquipamentoL4.add(m1);
-
-            Cliente c4 = new Cliente("Joao", "42165498700", "joao@nobarquinho.com");
-
-            Locacao l4 = new Locacao(null, listaEquipamentoL4);
-            l4.setDescricao("Locação 4");
-            l4.setMeses(12);
-            locacaoService.incluir(l4);
-        } catch (CpfInvalidoException | ClienteNuloException | LocacaoSemEquipamentoException e) {
-            System.out.println("[ERROR - LOCACAO] " + e.getMessage());
-        }
-
-        try{
-            Set<Equipamento> listaEquipamentoL5 = new HashSet<Equipamento>();
-
-            Cliente c5 = new Cliente("Joao", "52165598700", "joao@nobarquinho.com");
-
-            Locacao l5 = new Locacao(c5, listaEquipamentoL5);
-            l5.setDescricao("Locação 5");
-            l5.setMeses(12);
-            locacaoService.incluir(l5);
-        } catch (CpfInvalidoException | ClienteNuloException | LocacaoSemEquipamentoException e) {
-            System.out.println("[ERROR - LOCACAO] " + e.getMessage());
-        }
-
-        try{
-            Set<Equipamento> listaEquipamentoL6 = null;
-
-            Cliente c6 = new Cliente("Joao", "62166698700", "joao@nobarquinho.com");
-
-            Locacao l6 = new Locacao(c6, listaEquipamentoL6);
-            l6.setDescricao("Locação 6");
-            l6.setMeses(12);
-            locacaoService.incluir(l6);
-        } catch (CpfInvalidoException | ClienteNuloException | LocacaoSemEquipamentoException e) {
-            System.out.println("[ERROR - LOCACAO] " + e.getMessage());
         }*/
 
-        //-----------------------------------------------------------------------
 
         System.out.println("===================================================");
     }

@@ -6,6 +6,7 @@ import br.edu.infnet.applocacaoequipamento.model.exception.TelaMonitorInvalidaEx
 import br.edu.infnet.applocacaoequipamento.model.exception.TipoImpressoraNuloException;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -19,6 +20,11 @@ public abstract class Equipamento implements IPrinter {
     private String nome;
     private float mensalidade;
     private int codigo;
+    @ManyToMany(mappedBy = "equipamentos")
+    private List<Locacao> locacoes;
+    @ManyToOne
+    @JoinColumn(name = "idUsuario")
+    private Usuario usuario;
 
     public abstract float calcularPontosFidelidade() throws MemoriaDesktopInvalidaException, TipoImpressoraNuloException, TelaMonitorInvalidaException;
 
@@ -60,6 +66,22 @@ public abstract class Equipamento implements IPrinter {
 
     public void setCodigo(int codigo) {
         this.codigo = codigo;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public List<Locacao> getLocacoes() {
+        return locacoes;
+    }
+
+    public void setLocacoes(List<Locacao> locacoes) {
+        this.locacoes = locacoes;
     }
 
     @Override
