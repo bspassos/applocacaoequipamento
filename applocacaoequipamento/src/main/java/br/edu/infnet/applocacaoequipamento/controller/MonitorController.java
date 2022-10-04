@@ -15,6 +15,9 @@ public class MonitorController {
     @Autowired
     MonitorService monitorService;
 
+    private String mensagem;
+    private String tipo;
+
     @GetMapping(value = "/monitor")
     public String telaCadastro() {
 
@@ -40,7 +43,16 @@ public class MonitorController {
     @GetMapping(value = "/monitor/{id}/excluir")
     public String exclusao(@PathVariable Integer id) {
 
-        monitorService.excluir(id);
+        try {
+            monitorService.excluir(id);
+
+            mensagem = "Exclusão do monitor " + id + " realizada com sucesso!!!";
+            tipo = "alert-success";
+        } catch (Exception e) {
+            mensagem = "Impossível realizar a exclusão do monitor" + id + " !!!";
+            tipo = "alert-danger";
+        }
+
 
         return "redirect:/monitor/lista";
     }

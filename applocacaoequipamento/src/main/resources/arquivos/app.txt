@@ -1,4 +1,4 @@
-P;AppLocacaoEquipamento;Projeto de Gestão de Locação de Equipamentos
+P;AppLocacaoEquipamento;Projeto do Bruno Passos de Gestão de Locação de Equipamentos
 C;Usuario
 A;nome;String;O nome do usuário
 A;email;String;O e-mail do usuário

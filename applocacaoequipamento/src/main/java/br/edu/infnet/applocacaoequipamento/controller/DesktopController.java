@@ -18,6 +18,8 @@ public class DesktopController {
 
     @Autowired
     DesktopService desktopService;
+    private String mensagem;
+    private String tipo;
 
     @GetMapping(value = "/desktop")
     public String telaCadastro() {
@@ -32,6 +34,9 @@ public class DesktopController {
 
         desktopService.incluir(desktop);
 
+        mensagem = "Inclusão do desktop " + desktop.getNome() + " realizada com sucesso!!!";
+        tipo = "alert-success";
+
         return "redirect:/desktop/lista";
     }
 
@@ -40,13 +45,24 @@ public class DesktopController {
 
         model.addAttribute("listagem", desktopService.obterLista(usuario));
 
+        model.addAttribute("mensagem", mensagem);
+        model.addAttribute("tipo", tipo);
+
         return "desktop/lista";
     }
 
     @GetMapping(value = "/desktop/{id}/excluir")
     public String exclusao(@PathVariable Integer id) {
 
-        desktopService.excluir(id);
+        try {
+            desktopService.excluir(id);
+
+            mensagem = "Exclusão do desktop " + id + " realizada com sucesso!!!";
+            tipo = "alert-success";
+        } catch (Exception e) {
+            mensagem = "Impossível realizar a exclusão do desktop" + id + " !!!";
+            tipo = "alert-danger";
+        }
 
         return "redirect:/desktop/lista";
     }

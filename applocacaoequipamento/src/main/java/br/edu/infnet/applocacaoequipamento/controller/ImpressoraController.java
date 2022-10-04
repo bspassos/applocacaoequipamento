@@ -16,6 +16,9 @@ public class ImpressoraController {
     @Autowired
     ImpressoraService impressoraService;
 
+    private String mensagem;
+    private String tipo;
+
     @GetMapping(value = "/impressora")
     public String telaCadastro() {
 
@@ -41,7 +44,16 @@ public class ImpressoraController {
     @GetMapping(value = "/impressora/{id}/excluir")
     public String exclusao(@PathVariable Integer id) {
 
-        impressoraService.excluir(id);
+        try {
+            impressoraService.excluir(id);
+
+            mensagem = "Exclusão do desktop " + id + " realizada com sucesso!!!";
+            tipo = "alert-success";
+        } catch (Exception e) {
+            mensagem = "Impossível realizar a exclusão do desktop" + id + " !!!";
+            tipo = "alert-danger";
+        }
+
 
         return "redirect:/impressora/lista";
     }

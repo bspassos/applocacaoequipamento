@@ -14,6 +14,8 @@ public class EquipamentoController {
 
     @Autowired
     private EquipamentoService equipamentoService;
+    private String mensagem;
+    private String tipo;
 
     @GetMapping(value = "/equipamento/lista")
     public String telaLista(Model model, @SessionAttribute("user") Usuario usuario) {
@@ -26,7 +28,16 @@ public class EquipamentoController {
     @GetMapping(value = "/equipamento/{id}/excluir")
     public String excluir(@PathVariable Integer id) {
 
-        equipamentoService.excluir(id);
+        try {
+            equipamentoService.excluir(id);
+
+            mensagem = "Exclusão do desktop " + id + " realizada com sucesso!!!";
+            tipo = "alert-success";
+        } catch (Exception e) {
+            mensagem = "Impossível realizar a exclusão do desktop" + id + " !!!";
+            tipo = "alert-danger";
+        }
+
 
         return "redirect:/equipamento/lista";
     }

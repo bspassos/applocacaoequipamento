@@ -47,7 +47,7 @@ public class Locacao implements IPrinter {
     }
 
     public Locacao() {
-
+        this.data = LocalDateTime.now();
     }
 
     public LocalDateTime getData() {

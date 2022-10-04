@@ -18,6 +18,12 @@
 
     <div class="container mt-3">
 
+        <c:if test="${not empty mensagem}">
+            <div class="alert ${tipo}">
+                <strong>Informação</strong> ${mensagem}
+            </div>
+        </c:if>
+
         <h3>Cliente</h3>
 
         <a class="btn btn-primary" href="/cliente">Novo</a>

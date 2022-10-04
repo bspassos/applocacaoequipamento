@@ -1,5 +1,6 @@
 package br.edu.infnet.applocacaoequipamento.controller;
 
+import br.edu.infnet.applocacaoequipamento.model.domain.Equipamento;
 import br.edu.infnet.applocacaoequipamento.model.domain.Locacao;
 import br.edu.infnet.applocacaoequipamento.model.domain.Usuario;
 import br.edu.infnet.applocacaoequipamento.model.service.ClienteService;
@@ -35,17 +36,20 @@ public class LocacaoController {
     }
 
     @GetMapping(value = "/locacao/lista")
-    public String telaLista(Model model) {
+    public String telaLista(Model model, @SessionAttribute("user") Usuario usuario) {
 
-        model.addAttribute("listagem", locacaoService.obterLista());
+        model.addAttribute("listagem", locacaoService.obterLista(usuario));
 
         return "locacao/lista";
     }
 
     @PostMapping(value = "/locacao/incluir")
-    public String incluir(Locacao locacao){
+    public String incluir(Locacao locacao, @SessionAttribute("user") Usuario usuario){
 
-        //locacaoService.incluir(locacao);
+        locacao.setUsuario(usuario);
+        locacao.setData(LocalDateTime.now());
+
+        locacaoService.incluir(locacao);
 
         return "redirect:/locacao/lista";
     }
