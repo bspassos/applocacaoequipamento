@@ -27,7 +27,7 @@ public class DesktopService {
     }
 
     public Collection<Desktop> obterLista(Usuario usuario){
-        return (Collection<Desktop>) desktopRepository.findAll(usuario.getId());
+        return desktopRepository.findAll(usuario.getId());
     }
 
     public void excluir(Integer id){

@@ -1,6 +1,7 @@
 package br.edu.infnet.applocacaoequipamento.controller;
 
 import br.edu.infnet.applocacaoequipamento.model.domain.Monitor;
+import br.edu.infnet.applocacaoequipamento.model.domain.Usuario;
 import br.edu.infnet.applocacaoequipamento.model.service.MonitorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 @Controller
 public class MonitorController {
@@ -25,17 +27,25 @@ public class MonitorController {
     }
 
     @PostMapping(value = "/monitor/incluir")
-    public String incluir(Monitor monitor) {
+    public String incluir(Monitor monitor, @SessionAttribute("user") Usuario usuario) {
+
+        monitor.setUsuario(usuario);
 
         monitorService.incluir(monitor);
+
+        mensagem = "Inclusão do desktop " + monitor.getNome() + " realizada com sucesso!!!";
+        tipo = "alert-success";
 
         return "redirect:/monitor/lista";
     }
 
     @GetMapping(value = "/monitor/lista")
-    public String telaLista(Model model) {
+    public String telaLista(Model model, @SessionAttribute("user") Usuario usuario) {
 
         model.addAttribute("listagem", monitorService.obterLista());
+
+        model.addAttribute("mensagem", mensagem);
+        model.addAttribute("tipo", tipo);
 
         return "monitor/lista";
     }

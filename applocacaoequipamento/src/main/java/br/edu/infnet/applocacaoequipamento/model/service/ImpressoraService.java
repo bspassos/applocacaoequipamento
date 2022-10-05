@@ -1,6 +1,7 @@
 package br.edu.infnet.applocacaoequipamento.model.service;
 
 import br.edu.infnet.applocacaoequipamento.model.domain.Impressora;
+import br.edu.infnet.applocacaoequipamento.model.domain.Usuario;
 import br.edu.infnet.applocacaoequipamento.model.repository.ImpressoraRepository;
 import br.edu.infnet.applocacaoequipamento.model.test.AppImpressao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,10 @@ public class ImpressoraService {
 
     public Collection<Impressora> obterLista(){
         return (Collection<Impressora>) impressoraRepository.findAll();
+    }
+
+    public Collection<Impressora> obterLista(Usuario usuario){
+        return impressoraRepository.findAll(usuario.getId());
     }
 
     public void excluir(Integer id){

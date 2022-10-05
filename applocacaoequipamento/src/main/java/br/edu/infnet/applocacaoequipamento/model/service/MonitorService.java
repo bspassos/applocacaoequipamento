@@ -1,6 +1,8 @@
 package br.edu.infnet.applocacaoequipamento.model.service;
 
+import br.edu.infnet.applocacaoequipamento.model.domain.Impressora;
 import br.edu.infnet.applocacaoequipamento.model.domain.Monitor;
+import br.edu.infnet.applocacaoequipamento.model.domain.Usuario;
 import br.edu.infnet.applocacaoequipamento.model.repository.MonitorRepository;
 import br.edu.infnet.applocacaoequipamento.model.test.AppImpressao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +27,9 @@ public class MonitorService {
         return (Collection<Monitor>) monitorRepository.findAll();
     }
 
+    public Collection<Monitor> obterLista(Usuario usuario){
+        return monitorRepository.findAll(usuario.getId());
+    }
     public void excluir(Integer id){
         monitorRepository.deleteById(id);
     }
