@@ -6,4 +6,4 @@ M;8;Monitor Dell de 21.5" SE2222H;180;21.5;1920x1080;HDMI e VGA;
 M;9;Monitor 23" Dell P2319H";250;23;1920x1080;DisplayPort, VGA e HDMI;
 I;4;Impressora multifuncional hp DeskJet Ink Advantage 2774 com Wi-Fi;30;Deskjet;HP;false;
 I;5;Impressora multifuncional deskjet tanque hp 416;60;Deskjet;HP;true;
-I;6;Impressora--- Laser Monocromática, Xerox, B210, 30 PPM, A4;400;Laser;Xerox;false;
+I;6;Impressora Laser Monocromática, Xerox, B210, 30 PPM, A4;400;Laser;Xerox;false;
