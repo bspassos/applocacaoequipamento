@@ -24,6 +24,8 @@ public class AppController {
     private UsuarioService usuarioService;
     @Autowired
     private AppService appService;
+    private String mensagem;
+    private String tipo;
 
     @GetMapping(value = "/")
     public String telaHome(Model model) {
@@ -48,6 +50,13 @@ public class AppController {
 
             return "redirect:/";
         }
+
+        mensagem = "Login inválido";
+        tipo = "alert-danger";
+
+        model.addAttribute("mensagem", mensagem);
+        model.addAttribute("tipo", tipo);
+
 
         return "login";
     }

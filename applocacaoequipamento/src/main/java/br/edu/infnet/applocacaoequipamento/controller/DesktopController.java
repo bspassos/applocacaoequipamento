@@ -1,6 +1,5 @@
 package br.edu.infnet.applocacaoequipamento.controller;
 
-import br.edu.infnet.applocacaoequipamento.model.domain.Cliente;
 import br.edu.infnet.applocacaoequipamento.model.domain.Desktop;
 import br.edu.infnet.applocacaoequipamento.model.domain.Usuario;
 import br.edu.infnet.applocacaoequipamento.model.service.DesktopService;

@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
+
 @Controller
 public class MonitorController {
 
     @Autowired
     MonitorService monitorService;
-
     private String mensagem;
     private String tipo;
 
@@ -33,7 +33,7 @@ public class MonitorController {
 
         monitorService.incluir(monitor);
 
-        mensagem = "Inclusão do desktop " + monitor.getNome() + " realizada com sucesso!!!";
+        mensagem = "Inclusão do monitor " + monitor.getNome() + " realizada com sucesso!!!";
         tipo = "alert-success";
 
         return "redirect:/monitor/lista";
@@ -42,7 +42,7 @@ public class MonitorController {
     @GetMapping(value = "/monitor/lista")
     public String telaLista(Model model, @SessionAttribute("user") Usuario usuario) {
 
-        model.addAttribute("listagem", monitorService.obterLista());
+        model.addAttribute("listagem", monitorService.obterLista(usuario));
 
         model.addAttribute("mensagem", mensagem);
         model.addAttribute("tipo", tipo);

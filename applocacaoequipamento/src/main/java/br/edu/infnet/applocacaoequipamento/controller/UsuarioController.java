@@ -23,6 +23,9 @@ public class UsuarioController {
 
         model.addAttribute("listagem", usuarioService.obterLista());
 
+        model.addAttribute("mensagem", mensagem);
+        model.addAttribute("tipo", tipo);
+
         return "usuario/lista";
     }
 

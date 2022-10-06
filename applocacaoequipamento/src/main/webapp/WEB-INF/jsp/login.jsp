@@ -17,7 +17,14 @@
     <c:import url="/WEB-INF/jsp/menu.jsp"/>
 
     <div class="container mt-3">
-        <h2>Stacked form</h2>
+
+        <c:if test="${not empty mensagem}">
+            <div class="alert ${tipo}">
+                <strong>Informação</strong> ${mensagem}
+            </div>
+        </c:if>
+
+        <h2>Login</h2>
         <form action="/login" method="post">
             <div class="mb-3 mt-3">
                 <label for="email">Email:</label>

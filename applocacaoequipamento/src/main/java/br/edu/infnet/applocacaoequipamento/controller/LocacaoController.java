@@ -26,6 +26,9 @@ public class LocacaoController {
     @Autowired
     private EquipamentoService equipamentoService;
 
+    private String mensagem;
+    private String tipo;
+
     @GetMapping(value = "/locacao")
     public String telaCadastro(Model model, @SessionAttribute("user") Usuario usuario) {
 
@@ -40,6 +43,9 @@ public class LocacaoController {
 
         model.addAttribute("listagem", locacaoService.obterLista(usuario));
 
+        model.addAttribute("mensagem", mensagem);
+        model.addAttribute("tipo", tipo);
+
         return "locacao/lista";
     }
 
@@ -51,6 +57,9 @@ public class LocacaoController {
 
         locacaoService.incluir(locacao);
 
+        mensagem = "Inclusão da locação " + locacao.getDescricao() + " realizada com sucesso!!!";
+        tipo = "alert-success";
+
         return "redirect:/locacao/lista";
     }
 
@@ -58,6 +67,9 @@ public class LocacaoController {
     public String excluir(@PathVariable Integer id) {
 
         locacaoService.excluir(id);
+
+        mensagem = "Exclusão da locação " + id + " realizada com sucesso!!!";
+        tipo = "alert-success";
 
         return "redirect:/locacao/lista";
     }

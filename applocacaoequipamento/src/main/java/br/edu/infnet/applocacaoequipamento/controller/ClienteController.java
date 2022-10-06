@@ -59,7 +59,7 @@ public class ClienteController {
             mensagem = "Exclusão do cliente " + id + " realizada com sucesso!!!";
             tipo = "alert-success";
         } catch (Exception e) {
-            mensagem = "Impossível realizar a exclusão do solicitante" + id + " !!!";
+            mensagem = "Impossível realizar a exclusão do solicitante " + id + " !!!";
             tipo = "alert-danger";
         }
 
